@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chronicled</title>
+
+    <link rel="stylesheet" href="../css/home-page.css" />
+    <link rel="icon" type="image/x-icon" href="../images/swords-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2c665bbf8a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="navbar">
+          <a href="#" class="brand-container">
+            <img class="logo" src="../images/swords-icon.svg" alt="logo" />
+            <h1>Chronicled</h1>
+          </a>
+          <ul class="menu">
+            <li>
+              <div class="current-user">
+                <a href="#">
+                  <img
+                    class="user-icon"
+                    src="../images/profile-pic.jpg"
+                    alt=""
+                  />
+                  KRASIMIR
+                  <img
+                    class="user-arrow"
+                    src="../images/arrow-down.svg"
+                    alt=""
+                  />
+                </a>
+              </div>
+            </li>
+            <li><a href="#">LIBRARY</a></li>
+            <li><a href="#">JOURNAL</a></li>
+            <li class="log-button"><a href="#">+ LOG</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="content-wrap">
+      <p class="welcome-message">
+        Welcome back <a href="#">Krasimir</a>, have you completed any games
+        recently?
+      </p>
+
+      <section id="trending-games" class="games-section">
+        <h2>Trending Games</h2>
+        <div class="game-posters">
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co741o.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Helldivers 2</h3>
+                <span class="rating">★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co73ju.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Final Fantasy 7</h3>
+                <span class="rating">★★★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5ive.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Lethal Company</h3>
+                <span class="rating">★★★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7497.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Cyberpunk 2077</h3>
+                <span class="rating">★★★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Witcher 3</h3>
+                <span class="rating">★★★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7n02.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Palworld</h3>
+                <span class="rating">★★★</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="newly-logged" class="games-section">
+        <h2>Newly Logged</h2>
+        <div class="game-posters">
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co741o.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Helldivers 2</h3>
+                <span class="rating">★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co73ju.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Final Fantasy 7</h3>
+                <span class="rating">★★★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5ive.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Lethal Company</h3>
+                <span class="rating">★★★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7497.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Cyberpunk 2077</h3>
+                <span class="rating">★★★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Witcher 3</h3>
+                <span class="rating">★★★★★</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="game-poster">
+              <img
+                class="game-img"
+                src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7n02.jpg"
+                alt=""
+              />
+              <div class="game-name-rating">
+                <h3>Palworld</h3>
+                <span class="rating">★★★</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="latest-reviews" class="games-section">
+        <h2>Latest reviews</h2>
+        <div class="reviews-container">
+          <div class="review">
+            <div class="review-img-details">
+              <a href="#">
+                <img
+                  class="review-poster"
+                  src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="review-details">
+                <a href="#">
+                  <div class="review-user">
+                    <img
+                      class="user-icon"
+                      src="../images/profile-pic.jpg"
+                      alt=""
+                    />
+                    <p>Krasimir</p>
+                  </div>
+                </a>
+                <div class="review-title-and-year">
+                  <p class="review-title">
+                    <a href="#">Elden Ring</a>
+                  </p>
+                  <p class="review-year">
+                    <a href="#"> 2022 </a>
+                  </p>
+                </div>
+                <div class="review-platform">
+                  <p>completed on <a href="#">Playstation 5</a></p>
+                </div>
+                <span class="review-rating">★★★★★</span>
+              </div>
+            </div>
+            <p class="review-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim
+              ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem
+              mauris, auctor at nibh ultricies, scelerisque hendrerit quam.
+              Integer porttitor ligula a cursus rhoncus. Ut quis est sem.
+              Curabitur nibh sem, ultricies eu velit quis, imperdiet varius
+              diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Duis enim ipsum, porttitor et blandit eget, vestibulum vel nulla.
+              Cras sem mauris, auctor at nibh ultricies, scelerisque hendrerit
+              quam. Integer porttitor ligula a cursus rhoncus. Ut quis est sem.
+              Curabitur nibh sem, ultricies eu velit quis, imperdiet varius
+              diam.
+            </p>
+            <div class="review-options">
+              <div class="review-like-share">
+                <div class="review-likes">
+                  <a href="#">
+                    <i class="fa-regular fa-heart fa-sm"></i>
+                  </a>
+                  <p>10 Likes</p>
+                </div>
+                <div class="review-comments">
+                  <a href="#">
+                    <i class="fa-regular fa-comment fa-sm"></i>
+                    <p>10 Comments</p>
+                  </a>
+                </div>
+              </div>
+              <a href="">Open Review</a>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-img-details">
+              <a href="#">
+                <img
+                  class="review-poster"
+                  src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="review-details">
+                <a href="#">
+                  <div class="review-user">
+                    <img
+                      class="user-icon"
+                      src="../images/profile-pic.jpg"
+                      alt=""
+                    />
+                    <p>Krasimir</p>
+                  </div>
+                </a>
+                <div class="review-title-and-year">
+                  <p class="review-title">
+                    <a href="#">Elden Ring</a>
+                  </p>
+                  <p class="review-year">
+                    <a href="#"> 2022 </a>
+                  </p>
+                </div>
+                <div class="review-platform">
+                  <p>completed on <a href="#">Playstation 5</a></p>
+                </div>
+                <span class="review-rating">★★★★★</span>
+              </div>
+            </div>
+            <p class="review-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim
+              ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem
+              mauris, auctor at nibh ultricies, scelerisque hendrerit quam.
+              Integer porttitor ligula a cursus rhoncus. Ut quis est sem.
+              Curabitur nibh sem, ultricies eu velit quis, imperdiet varius
+              diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Duis enim ipsum, porttitor et blandit eget, vestibulum vel nulla.
+              Cras sem mauris, auctor at nibh ultricies, scelerisque hendrerit
+              quam. Integer porttitor ligula a cursus rhoncus. Ut quis est sem.
+              Curabitur nibh sem, ultricies eu velit quis, imperdiet varius
+              diam.
+            </p>
+            <div class="review-options">
+              <div class="review-like-share">
+                <div class="review-likes">
+                  <a href="#">
+                    <i class="fa-regular fa-heart fa-sm"></i>
+                  </a>
+                  <p>10 Likes</p>
+                </div>
+                <div class="review-comments">
+                  <a href="#">
+                    <i class="fa-regular fa-comment fa-sm"></i>
+                    <p>10 Comments</p>
+                  </a>
+                </div>
+              </div>
+              <a href="">Open Review</a>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-img-details">
+              <a href="#">
+                <img
+                  class="review-poster"
+                  src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="review-details">
+                <a href="#">
+                  <div class="review-user">
+                    <img
+                      class="user-icon"
+                      src="../images/profile-pic.jpg"
+                      alt=""
+                    />
+                    <p>Krasimir</p>
+                  </div>
+                </a>
+                <div class="review-title-and-year">
+                  <p class="review-title">
+                    <a href="#">Elden Ring</a>
+                  </p>
+                  <p class="review-year">
+                    <a href="#"> 2022 </a>
+                  </p>
+                </div>
+                <div class="review-platform">
+                  <p>completed on <a href="#">Playstation 5</a></p>
+                </div>
+                <span class="review-rating">★★★★★</span>
+              </div>
+            </div>
+            <p class="review-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim
+              ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem
+              mauris, auctor at nibh ultricies, scelerisque hendrerit quam.
+              Integer porttitor ligula a cursus rhoncus. Ut quis est sem.
+              Curabitur nibh sem, ultricies eu velit quis, imperdiet varius
+              diam.
+            </p>
+            <div class="review-options">
+              <div class="review-like-share">
+                <div class="review-likes">
+                  <a href="#">
+                    <i class="fa-regular fa-heart fa-sm"></i>
+                  </a>
+                  <p>10 Likes</p>
+                </div>
+                <div class="review-comments">
+                  <a href="#">
+                    <i class="fa-regular fa-comment fa-sm"></i>
+                    <p>10 Comments</p>
+                  </a>
+                </div>
+              </div>
+              <a href="">Open Review</a>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-img-details">
+              <a href="#">
+                <img
+                  class="review-poster"
+                  src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="review-details">
+                <a href="#">
+                  <div class="review-user">
+                    <img
+                      class="user-icon"
+                      src="../images/profile-pic.jpg"
+                      alt=""
+                    />
+                    <p>Krasimir</p>
+                  </div>
+                </a>
+                <div class="review-title-and-year">
+                  <p class="review-title">
+                    <a href="#">Elden Ring</a>
+                  </p>
+                  <p class="review-year">
+                    <a href="#"> 2022 </a>
+                  </p>
+                </div>
+                <div class="review-platform">
+                  <p>completed on <a href="#">Playstation 5</a></p>
+                </div>
+                <span class="review-rating">★★★★★</span>
+              </div>
+            </div>
+            <p class="review-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim
+              ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem
+              mauris, auctor at nibh ultricies, scelerisque hendrerit quam.
+              Integer porttitor ligula a cursus rhoncus. Ut quis est sem.
+              Curabitur nibh sem, ultricies eu velit quis, imperdiet varius
+              diam.
+            </p>
+            <div class="review-options">
+              <div class="review-like-share">
+                <div class="review-likes">
+                  <a href="#">
+                    <i class="fa-regular fa-heart fa-sm"></i>
+                  </a>
+                  <p>10 Likes</p>
+                </div>
+                <div class="review-comments">
+                  <a href="#">
+                    <i class="fa-regular fa-comment fa-sm"></i>
+                    <p>10 Comments</p>
+                  </a>
+                </div>
+              </div>
+              <a href="">Open Review</a>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-img-details">
+              <a href="#">
+                <img
+                  class="review-poster"
+                  src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="review-details">
+                <a href="#">
+                  <div class="review-user">
+                    <img
+                      class="user-icon"
+                      src="../images/profile-pic.jpg"
+                      alt=""
+                    />
+                    <p>Krasimir</p>
+                  </div>
+                </a>
+                <div class="review-title-and-year">
+                  <p class="review-title">
+                    <a href="#">Elden Ring</a>
+                  </p>
+                  <p class="review-year">
+                    <a href="#"> 2022 </a>
+                  </p>
+                </div>
+                <div class="review-platform">
+                  <p>completed on <a href="#">Playstation 5</a></p>
+                </div>
+                <span class="review-rating">★★★★★</span>
+              </div>
+            </div>
+            <p class="review-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim
+              ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem
+              mauris, auctor at nibh ultricies, scelerisque hendrerit quam.
+              Integer porttitor ligula a cursus rhoncus. Ut quis est sem.
+              Curabitur nibh sem, ultricies eu velit quis, imperdiet varius
+              diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Duis enim ipsum, porttitor et blandit eget, vestibulum vel nulla.
+              Cras sem mauris, auctor at nibh ultricies, scelerisque hendrerit
+              quam. Integer porttitor ligula a cursus rhoncus. Ut quis est sem.
+              Curabitur nibh sem, ultricies eu velit quis, imperdiet varius
+              diam.
+            </p>
+            <div class="review-options">
+              <div class="review-like-share">
+                <div class="review-likes">
+                  <a href="#">
+                    <i class="fa-regular fa-heart fa-sm"></i>
+                  </a>
+                  <p>10 Likes</p>
+                </div>
+                <div class="review-comments">
+                  <a href="#">
+                    <i class="fa-regular fa-comment fa-sm"></i>
+                    <p>10 Comments</p>
+                  </a>
+                </div>
+              </div>
+              <a href="">Open Review</a>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-img-details">
+              <a href="#">
+                <img
+                  class="review-poster"
+                  src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="review-details">
+                <a href="#">
+                  <div class="review-user">
+                    <img
+                      class="user-icon"
+                      src="../images/profile-pic.jpg"
+                      alt=""
+                    />
+                    <p>Krasimir</p>
+                  </div>
+                </a>
+                <div class="review-title-and-year">
+                  <p class="review-title">
+                    <a href="#">Elden Ring</a>
+                  </p>
+                  <p class="review-year">
+                    <a href="#"> 2022 </a>
+                  </p>
+                </div>
+                <div class="review-platform">
+                  <p>completed on <a href="#">Playstation 5</a></p>
+                </div>
+                <span class="review-rating">★★★★★</span>
+              </div>
+            </div>
+            <p class="review-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim
+              ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem
+              mauris, auctor at nibh ultricies, scelerisque hendrerit quam.
+              Integer porttitor ligula a cursus rhoncus. Ut quis est sem.
+              Curabitur nibh sem, ultricies eu velit quis, imperdiet varius
+              diam.
+            </p>
+            <div class="review-options">
+              <div class="review-like-share">
+                <div class="review-likes">
+                  <a href="#">
+                    <i class="fa-regular fa-heart fa-sm"></i>
+                  </a>
+                  <p>10 Likes</p>
+                </div>
+                <div class="review-comments">
+                  <a href="#">
+                    <i class="fa-regular fa-comment fa-sm"></i>
+                    <p>10 Comments</p>
+                  </a>
+                </div>
+              </div>
+              <a href="">Open Review</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="content-wrap">
+        <div class="personal-information">
+          <p>Created by Krasimir Hristov</p>
+          <div class="socials">
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
