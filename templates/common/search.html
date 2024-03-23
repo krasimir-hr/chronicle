@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="search-container">
+    <h2>
+        {{ games|length }} results found for <span class="search-term">{{ search_query }}</span>
+    </h2>
+    
+    
+        {% for game in game_details %}
+        <div class="result-container">
+            <a href="#"><img class="search-poster" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover_id }}.jpg" alt=""/></a>
+            <div class="result-details">
+                <div class="result-name-year">
+                    <a href="{% url "game-detail" game.id %}"><p class="search-title">{{ game.name }}</p></a>
+                    <p class="search-year">{{ game.release_year }}</p>
+                </div>
+                <p class="search-summary">{{ game.summary }}</p>
+                <div class="log-review-container">
+                    <a href="#" class='log-button'>Add log</a>
+                    <a href="#" class='log-button'>Add review</a>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        </hr>
+        {% empty %}
+        <li>No games found.</li>
+        {% endfor %}
+    
+</div>
+
+{% endblock content %}

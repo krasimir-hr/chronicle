@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+{% load custom_filters %}
+
+    <div class="auth-form-container">
+        <h2>Registration</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.username|placeholder:'Username' }}
+            {{ form.username.errors }}
+            {{ form.email|placeholder:'Email address' }}
+            {{ form.email.errors }}
+            {{ form.password1|placeholder:'Password' }}
+            {{ form.password1.errors }}
+            {{ form.password2|placeholder:'Password confirmation' }}
+            {{ form.password2.errors }}
+            <div class="terms-container">
+                <label>
+                    <input type="checkbox" name="agree-to-terms" required="true">
+                    I agree to the <a href="#">terms and conditions</a>.
+                </label>
+            </div>            
+            <button type="submit">Register</button>    
+        </form>
+        <p><a href="#">Already have an account? Login</a></p>
+    </div>
+
+{% endblock content %}
