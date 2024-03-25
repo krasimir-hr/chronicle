@@ -9,9 +9,6 @@
 
     <link rel="stylesheet" href="{% static "css/styles.css" %}" /> 
     <link rel="icon" type="image/x-icon" href="{% static "images/swords-icon.svg" %}"/> 
-    <link rel="stylesheet" href="{% static "fontawesome/css/fontawesome.css" %}"> 
-    <link rel="stylesheet" href="{% static "fontawesome/css/brands.css" %}"> 
-    <link rel="stylesheet" href="{% static "fontawesome/css/regular.css" %}">
 
     <script
       src="https://kit.fontawesome.com/2c665bbf8a.js"
@@ -31,31 +28,32 @@
           <ul class="menu">
             {% if not request.user.is_authenticated %}
               <li>
-                <a href="{% url "login" %}">SIGN IN</a>
+                <a href="{% url "login" %}">Sign in</a>
               </li>
               <li>
-                <a href="{% url "registration" %}">CREATE ACCOUNT</a>
+                <a href="{% url "registration" %}">Create an account</a>
               </li>
             {% else %}
               <li>
                 <div class="current-user">
                   <a href="#">
-                    <img class="user-icon" src="/images/profile-pic.jpg" alt="" />
-                    KRASIMIR
-                    <img class="user-arrow" src="/images/arrow-down.svg" alt="" />
+                    <img class="user-icon" src="{% static "images/profile-pic.jpg" %}" alt="" />
+                    {{ logged_in_user.username }}
+                    <img class="user-arrow" src="{% static "images/arrow-down.svg" %}" alt="" />
                   </a>
                 </div>
               </li>
               <li>
-                <a href="#">LIBRARY</a>
+                <a href="#">Library</a>
               </li>
               <li>
-                <a href="#">JOURNAL</a>
+                <a href="#">Journal</a>
               </li>
-            {% endif %}
               <form action="{% url "search" %}" method="get">
                 <input class="search-bar" type="text id" name="q" placeholder="Search..." >
               </form>
+            {% endif %}
+              
 
             </ul>
             <li class="hamburger-icon">

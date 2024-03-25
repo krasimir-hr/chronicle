@@ -13,7 +13,7 @@
             <a href="#"><img class="search-poster" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover_id }}.jpg" alt=""/></a>
             <div class="result-details">
                 <div class="result-name-year">
-                    <a href="{% url "game-detail" game.id %}"><p class="search-title">{{ game.name }}</p></a>
+                    <a href="{% url "game-detail" game.slug %}"><p class="search-title">{{ game.name }}</p></a>
                     <p class="search-year">{{ game.release_year }}</p>
                 </div>
                 <p class="search-summary">{{ game.summary }}</p>

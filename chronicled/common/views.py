@@ -9,12 +9,8 @@ class HomePageView(TemplateView):
     template_name = 'common/home-page.html'
 
     def get_context_data(self, **kwargs):
-        #game_data = fetch_game_details('The Witcher 3: Wild Hunt')
-        #game_cover = fetch_game_cover()
-
         context = super().get_context_data(**kwargs)
-        #context["cover"] = game_cover
-        #context["name"] = game_data[0]
+        context['logged_in_user'] = self.request.user
         return context
 
 
@@ -45,6 +41,7 @@ class SearchListView(ListView):
             summary = game.get('summary', '')
             platforms = game.get('platforms', [])
             cover_id = game.get('cover_id', '')
+            slug = game.get('slug', '')
 
             game_details.append({
                 'id': id,
@@ -53,6 +50,7 @@ class SearchListView(ListView):
                 'summary': summary,
                 'platforms': platforms,
                 'cover_id': cover_id,
+                'slug': slug,
             })
         
         context['game_details'] = game_details

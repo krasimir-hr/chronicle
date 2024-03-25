@@ -1,6 +1,129 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 
+<div class="screenshot-container">
+    <div class="fade"></div>
+    {% if screenshot %}
+        <img class="game-screenshot" src="https://images.igdb.com/igdb/image/upload/t_original/{{ screenshot }}.webp" alt="">
+    {% else %}
+        <img class="game-screenshot" src="https://img.freepik.com/premium-vector/horizontal-wide-blue-sky-blurred-background-sunset-sunrise-sea-blurred-background_136277-922.jpg" alt="">
+    {% endif %}
+</div>
 
+<div class="game-container">
+    <div class="game-data-container">
+        <div class="left-sidebar">
+            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ cover_id }}.jpg" alt="">
+            <div class="game-stats">
+                <div class="game-button">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <p>5</p>
+                </div>
+                <div class="game-button">
+                    <i class="fa-regular fa-heart"></i>
+                    <p>50</p>
+                </div>
+                <div class="game-button">
+                    <i class="fa-solid fa-gift"></i>
+                    <p>1</p>
+                </div>
+            </div>
+            <div class="log-or-review-button">
+                Log or review
+            </div>
+            <p class="game-rate"><span>9.3</span>/10</p>
+            <div class="column">
+                Available on:
+                {% for platform in platforms %}
+                <a href="" class="game-platform">{{ platform }}</a>
+                {% endfor %}
+            </div>
+            <div class="column">
+                Genres:
+                {% for genre in genres %}
+                    <a href="" class="game-platform">{{ genre }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="main-content">
+            <h1 class="game-title">{{ name }}</h1>
+            <p class="release-info">
+                {{ release_date }} | {{ companies }}
+            </p>
+            <p>{{ summary }}</p>
+            <div class="game-reviews-container">
+                <h2>Popular reviews for this game</h2>
+                <div class="game-review-container">
+                    <img class="game-review-img" src="{% static "images/profile-pic.jpg" %}" alt="">
+                    <div class="game-review-main">
+                        <p>
+                            Review by <span>Krasio</span>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </p>
+                        <p class="game-review-platform">played on <a href="#">Playstation 5</a></p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem mauris, auctor at nibh ultricies, scelerisque hendrerit quam. Integer porttitor ligula a cursus rhoncus. Ut quis est sem. Curabitur nibh sem, ultricies eu velit quis, imperdiet varius diam. 
+                        </p>
+                        <div class="review-options">
+                            <div class="review-like-share">
+                              <div class="review-likes">
+                                <a href="#">
+                                  <i class="fa-regular fa-heart fa-sm"></i>
+                                </a>
+                                <p>10 Likes</p>
+                              </div>
+                              <div class="review-comments">
+                                <a href="#">
+                                  <i class="fa-regular fa-comment fa-sm"></i>
+                                  <p>10 Comments</p>
+                                </a>
+                              </div>
+                            </div>
+                            <a href="">Open Review</a>
+                          </div>
+                    </div>
+                </div>
+                <div class="game-review-container">
+                    <img class="game-review-img" src="{% static "images/profile-pic.jpg" %}" alt="">
+                    <div class="game-review-main">
+                        <p>
+                            Review by <span>Krasio</span>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem mauris, auctor at nibh ultricies, scelerisque hendrerit quam. Integer porttitor ligula a cursus rhoncus. Ut quis est sem. Curabitur nibh sem, ultricies eu velit quis, imperdiet varius diam. 
+                        </p>
+                        <div class="review-options">
+                            <div class="review-like-share">
+                              <div class="review-likes">
+                                <a href="#">
+                                  <i class="fa-regular fa-heart fa-sm"></i>
+                                </a>
+                                <p>10 Likes</p>
+                              </div>
+                              <div class="review-comments">
+                                <a href="#">
+                                  <i class="fa-regular fa-comment fa-sm"></i>
+                                  <p>10 Comments</p>
+                                </a>
+                              </div>
+                            </div>
+                            <a href="">Open Review</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}

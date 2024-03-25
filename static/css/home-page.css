@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: linear-gradient(to bottom, #232a31 5%, #161A1F);
+    background: #20262C;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -85,10 +85,12 @@ nav {
     max-width: 1050px;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .menu {
     display: flex;
+    margin-left: auto;
     list-style-type: none;
     align-items: center;
     font-family: "Kanit";    
@@ -100,7 +102,7 @@ nav {
 }
 
 .menu li {
-    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .user-arrow {
@@ -334,7 +336,8 @@ footer {
     border: 1px #2C3440;
     color: #90a0b1;
     height: 22px;
-    border-radius: 5px;;
+    border-radius: 5px;
+    margin-left: 15px;
 }
 
 
