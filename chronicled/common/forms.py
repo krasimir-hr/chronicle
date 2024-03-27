@@ -7,4 +7,8 @@ class LogForm(forms.ModelForm):
 
     class Meta:
         model = Log
-        fields = ['rating', 'review_text']
+        fields = ['rating', 'review_text', 'completed', 'first_time']
+        widgets = {
+            'rating': forms.RadioSelect(),
+            'progress': forms.RadioSelect(),
+        }

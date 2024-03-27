@@ -2,16 +2,33 @@
 {% block content %}
 {% load custom_filters %}
 
-<div class="auth-form-container">
-    <h2>I played {{ name }}</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.rating|placeholder:'Rating' }}
-        {{ form.rating.errors }}
-        {{ form.review_text|placeholder:'Description' }}
-        {{ form.review_text.errors }}     
-        <button type="submit">Log</button>    
-    </form>
+<div class="form-container large-form">
+    <h2>Log</h2>
+    <div class="log-container">
+        <div class="log-left-side">
+            <img class="log-img" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ cover_id }}.jpg" alt="">
+        </div>
+        <div class="log-right-side">
+            <p>I played {{ name }}...</p>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.rating|placeholder:'Rating' }}
+                {{ form.review_text|placeholder:'Leave a review...' }}
+                {{ form.review_text.errors }}    
+                <div class="checkbox-container">
+                    <div class="checkbox-item">
+                        {{ form.completed }} <span>Completed?</span>
+                    </div>
+                    <div class="checkbox-item">
+                        {{ form.first_time }} <span>First time?</span>
+                    </div>
+                </div>
+                <button class="button" type="submit">Log</button>    
+            </form>
+        </div>
+    </div>
+
+      
 </div>
 
 {% endblock content %}

@@ -10,10 +10,7 @@
     <link rel="stylesheet" href="{% static "css/styles.css" %}" /> 
     <link rel="icon" type="image/x-icon" href="{% static "images/swords-icon.svg" %}"/> 
 
-    <script
-      src="https://kit.fontawesome.com/2c665bbf8a.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/2c665bbf8a.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -47,7 +44,10 @@
                 <a href="#">Library</a>
               </li>
               <li>
-                <a href="#">Journal</a>
+                <form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button class="menu" type="submit">Logout</button>
+              </form>
               </li>
               <form action="{% url "search" %}" method="get">
                 <input class="search-bar" type="text id" name="q" placeholder="Search..." >

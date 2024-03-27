@@ -71,6 +71,8 @@ class AddGameLogView(CreateView):
     def dispatch(self, request, *args, **kwargs):
         self.slug = kwargs.get('slug')
         self.game_data = fetch_game_by_slug(self.slug)
+        self.name = self.game_data[0]['name']
+        self.cover_id = self.game_data[0]['cover']['image_id']
         if not self.game_data:
             return HttpResponseBadRequest('Failed to fetch game data')   
         return super().dispatch(request, *args, **kwargs) 
@@ -79,6 +81,8 @@ class AddGameLogView(CreateView):
         game_db, created = Game.objects.get_or_create(slug=self.slug)
         if created:
             game_db.slug = self.slug
+            game_db.name = self.name
+            game_db.cover_id = self.cover_id
             game_db.save()
 
         form.instance.game = game_db
@@ -89,6 +93,7 @@ class AddGameLogView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['name'] = self.game_data[0]['name']
+        context['cover_id'] = self.game_data[0]['cover']['image_id']
         return context
     
     def get_success_url(self):

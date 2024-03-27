@@ -8,10 +8,18 @@ UserModel = get_user_model()
 
 
 class Log(models.Model):
-    PROGRESS_CHOICES = (
-        (1, 'Completed'),
-        (2, 'Playing'),
-    )
+    RATING_CHOICES = [
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+    (6, '6'),
+    (7, '7'),
+    (8, '8'),
+    (9, '9'),
+    (10, '10'),
+    ]
 
     game = models.ForeignKey(
         to=Game,
@@ -21,6 +29,7 @@ class Log(models.Model):
 
     rating = models.IntegerField(
         default=1,
+        choices=RATING_CHOICES,
         validators=[MinValueValidator(1), MaxValueValidator(10)]
     )
 
@@ -37,6 +46,18 @@ class Log(models.Model):
         null=True,
         blank=True,
     )
+
+    completed = models.BooleanField(
+        default=True,
+    )
+
+    first_time = models.BooleanField(
+        default=True,
+    )
+    
+    def __str__(self):
+        return f'Log for {self.game.name} by {self.user}'
+    
 
 
 class Like(models.Model):

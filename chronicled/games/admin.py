@@ -5,4 +5,4 @@ from chronicled.games.models import Game
 
 @admin.register(Game)
 class GameAdmin(admin.ModelAdmin):
-    list_display = ('slug', )
+    list_display = ('name', 'slug')

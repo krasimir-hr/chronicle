@@ -2,13 +2,13 @@
 {% block content %}
 {% load custom_filters %}
 
-    <div class="auth-form-container">
+    <div class="form-container">
         <h2>Login</h2>
         <form method="post">
             {% csrf_token %}
             {{ form.username|placeholder:'Username' }}
             {{ form.password|placeholder:'Password' }}
-            <div class="remember-container">
+            <div class="checkbox-container remember-me">
                 {{ form.remember_me }}       
                 {{ form.remember_me.label }}
             </div>

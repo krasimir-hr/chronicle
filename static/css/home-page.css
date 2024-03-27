@@ -97,7 +97,7 @@ nav {
     font-size: 20px;
 }
 
-.menu a:hover {
+.menu a:hover, .menu button:hover {
     color: #BADEFC;
 }
 
@@ -123,10 +123,15 @@ nav {
 }
 
 
-.menu a {
+.menu a, .menu button {
     color: #FFFFFF;
 }
 
+.menu button {
+    background-color: #14181C;
+    border: none;
+    cursor: pointer;
+}
 
 
 .welcome-message {
@@ -340,6 +345,25 @@ footer {
     margin-left: 15px;
 }
 
+.button {
+    background-color: #606C38;
+    color: #fefae0;
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #748342;
+}
+
+.logout-button { 
+    border: none;
+    background-color: #20262C;
+}
 
 @media (max-width: 600px) {
 
