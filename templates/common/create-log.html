@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% load custom_filters %}
+
+<div class="auth-form-container">
+    <h2>I played {{ name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.rating|placeholder:'Rating' }}
+        {{ form.rating.errors }}
+        {{ form.review_text|placeholder:'Description' }}
+        {{ form.review_text.errors }}     
+        <button type="submit">Log</button>    
+    </form>
+</div>
+
+{% endblock content %}

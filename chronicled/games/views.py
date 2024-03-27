@@ -14,6 +14,14 @@ class GameDetailView(TemplateView):
         slug = self.kwargs.get('slug')
         game = fetch_game_by_slug(slug)
 
+        # game_db, created = Game.objects.get_or_create(slug=slug)
+
+        # if created:
+        #     game_data = fetch_game_by_slug(slug)
+        #     game_db.name = game_data[0]['name']
+        #     game_db.slug = slug
+        #     game_db.save()
+
         context['name'] = game[0]['name']
         context['release_date'] = game[0]['first_release_date']
         context['cover_id'] = game[0]['cover']['image_id']
