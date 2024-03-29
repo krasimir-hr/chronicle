@@ -5,4 +5,5 @@ from chronicled.common.models import Log
 
 @admin.register(Log)
 class LogAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('__str__', 'date_posted')
+    list_select_related = ('game',)

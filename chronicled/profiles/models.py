@@ -61,12 +61,12 @@ class Profile(models.Model):
         blank=True,
     )
 
-    # profile_picture = models.ImageField(
-    #     null=True,
-    #     blank=True,
-    #     validators=(validate_file_size,),
-    #     upload_to='images/profile-pictures'
-    # )
+    profile_picture = models.ImageField(
+        null=True,
+        blank=True,
+        validators=(validate_file_size,),
+        upload_to='images/profile-pictures'
+    )
 
 
 

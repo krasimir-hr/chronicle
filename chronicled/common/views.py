@@ -3,6 +3,8 @@ from django.views.generic import TemplateView, ListView, CreateView
 from django.urls import reverse_lazy
 from django.core.cache import cache
 from django.http import HttpResponseBadRequest
+from django.db.models import Count, Avg
+from datetime import datetime, timedelta
 
 from chronicled.common.igdb_api import igdb_search, fetch_game_by_slug
 from chronicled.common.models import Log
@@ -15,6 +17,38 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['logged_in_user'] = self.request.user
+
+        def get_trending_games():
+            last_week = datetime.now() - timedelta(weeks=1)
+            start_date = last_week - timedelta(days=last_week.weekday())
+
+            trending_games = (Game.objects
+                                        .filter(logs__date_posted__gte=start_date)
+                                        .annotate(total_logs=Count('logs'))
+                                        .order_by('-total_logs'))[:6]
+
+
+            return trending_games
+
+        def get_highest_rated_games():
+            highest_rated_games = (Game.objects
+                                        .annotate(avg_rating=Avg('logs__rating'))
+                                        .exclude(logs__rating=None)
+                                        .order_by('-avg_rating'))[:6]
+
+
+            
+            return highest_rated_games
+        
+        def get_latest_reviews():
+            latest_reviews = (Log.objects
+                                    .exclude(review_text__exact="")
+                                    .order_by('-date_posted'))[:4]
+            return latest_reviews
+
+        context['trending_games'] = get_trending_games()
+        context['highest_rated_games'] = get_highest_rated_games()
+        context['latest_reviews'] = get_latest_reviews()
         return context
 
 
@@ -73,9 +107,15 @@ class AddGameLogView(CreateView):
         self.game_data = fetch_game_by_slug(self.slug)
         self.name = self.game_data[0]['name']
         self.cover_id = self.game_data[0]['cover']['image_id']
+        self.platforms = [(platform['id'], platform['name']) for platform in self.game_data[0]['platforms']]
         if not self.game_data:
             return HttpResponseBadRequest('Failed to fetch game data')   
         return super().dispatch(request, *args, **kwargs) 
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['platform_choices'] = self.platforms
+        return kwargs
 
     def form_valid(self, form):
         game_db, created = Game.objects.get_or_create(slug=self.slug)

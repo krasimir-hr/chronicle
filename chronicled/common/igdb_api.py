@@ -15,7 +15,7 @@ def igdb_search(search_term):
     fields = 'id, name, platforms.name, aggregated_rating, rating_count, first_release_date, category, status, summary, cover.image_id, slug'
     platforms = '6, 18, 19, 4, 21, 5, 41, 130, 7, 2, 3, 48, 167, 12, 49, 169, 32, 29'
 
-    query = f'search "{search_term}"; fields {fields}; where platforms = ({platforms}) & category = (0, 2); limit 200;'
+    query = f'search "{search_term}"; fields {fields}; where platforms = ({platforms}) & category = (0, 2, 8, 9); limit 200;'
 
     response = requests.post(url, headers=headers, data=query)
     

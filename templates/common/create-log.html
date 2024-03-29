@@ -14,7 +14,7 @@
                 {% csrf_token %}
                 {{ form.rating|placeholder:'Rating' }}
                 {{ form.review_text|placeholder:'Leave a review...' }}
-                {{ form.review_text.errors }}    
+                {{ form.platform_id }}    
                 <div class="checkbox-container">
                     <div class="checkbox-item">
                         {{ form.completed }} <span>Completed?</span>

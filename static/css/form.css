@@ -13,7 +13,7 @@
     align-items: left;
 }
 
-.form-container input, .form-container button, .form-container textarea {
+.form-container input, .form-container button, .form-container textarea, select[id="id_platform_id"] {
     color: #8694A2;
     background-color: #30394C;
     font-size: 17px;
@@ -100,4 +100,10 @@ input[name="rating"] {
 .log-right-side textarea {
     height: 100px;
     width: 300px;
+}
+
+select[id="id_platform_id"] {
+    width: 312px;
+    margin: 0 auto;
+    margin-bottom: 5px;
 }
