@@ -5,6 +5,7 @@
     padding: 20px;
 }
 
+
 .game-data-container {
     display: flex;
 }
@@ -139,10 +140,11 @@
     width: 700px;
 }
 
-.game-review-container {
+.game-review-container, .review-comment {
     display: flex;
     border-bottom: #2C3440 solid 1px;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .game-reviews-main {

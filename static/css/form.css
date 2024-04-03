@@ -7,13 +7,15 @@
     border-radius: 5px;
 }
 
+
+
 .form-container form {
     display: flex;
     flex-direction: column;
     align-items: left;
 }
 
-.form-container input, .form-container button, .form-container textarea, select[id="id_platform_id"] {
+.form-container input, .form-container button, .form-container textarea, select[id="id_platform_id"], textarea[id="id_text"] {
     color: #8694A2;
     background-color: #30394C;
     font-size: 17px;
@@ -79,25 +81,25 @@ input[name="rating"] {
 }
 
 
-.log-img {
+.create-log-img {
     height: 270px;
     padding: 0 15px 15px 0;
 }
 
-.log-container {
+.create-log-container {
     display: flex;
     justify-content: space-around;
 }
 
-.large-form {
+.large-frame {
     max-width: 600px;
 }
 
-.log-right-side p {
+.create-log-right-side p {
     margin-bottom: 5px;
 }
 
-.log-right-side textarea {
+.create-log-right-side textarea {
     height: 100px;
     width: 300px;
 }

@@ -1,6 +1,6 @@
 from django import forms
 
-from chronicled.common.models import Log
+from chronicled.common.models import Log, Comment
 
 
 class LogForm(forms.ModelForm):
@@ -15,4 +15,13 @@ class LogForm(forms.ModelForm):
         widgets = {
             'rating': forms.RadioSelect(),
             'progress': forms.RadioSelect(),
+        }
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={'placeholder': 'Add comment...'})
         }

@@ -1,15 +1,20 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, CreateView
+from django.shortcuts import render, redirect
+from django.views.generic import TemplateView, ListView, CreateView, DetailView
+from django.views.generic.edit import FormMixin
 from django.urls import reverse_lazy
 from django.core.cache import cache
 from django.http import HttpResponseBadRequest
 from django.db.models import Count, Avg
+from django.contrib.auth import get_user_model
 from datetime import datetime, timedelta
 
+
 from chronicled.common.igdb_api import igdb_search, fetch_game_by_slug
-from chronicled.common.models import Log
-from chronicled.common.forms import LogForm
+from chronicled.common.models import Log, Comment
+from chronicled.common.forms import LogForm, CommentForm
 from chronicled.games.models import Game
+
+UserModel = get_user_model()
 
 class HomePageView(TemplateView):
     template_name = 'common/home-page.html'
@@ -139,6 +144,41 @@ class AddGameLogView(CreateView):
     def get_success_url(self):
         return reverse_lazy('game-detail', kwargs={'slug': self.slug})
 
+
+class LogDetailsView(FormMixin, DetailView):
+    template_name = 'common/log-view.html'
+    model = Log
+    context_object_name = 'log'
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return self.request.path
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["comment_form"] = CommentForm
+        context["comments"] = Comment.objects.filter(to_log=self.get_object())
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        comment = form.save(commit=False)
+        comment.to_log = self.get_object()
+        comment.user = self.request.user
+        comment.date_time_posted = datetime.now()
+        comment.save()
+        return redirect(self.get_success_url())
+    
+
+        
+    
     
 
     

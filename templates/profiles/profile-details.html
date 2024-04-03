@@ -1,0 +1,62 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% load static %}
+
+<div class="content-wrap">
+  <div class="profile-header">
+    <div class="profile-img-name">
+      <div class="profile-picture">
+        <img src="{% static "/images/anon-user.webp" %}" alt="Profile Picture">
+      </div>
+      <div class="profile-name">{{ user.username }}</div>
+    </div>
+    <div class="profile-buttons">
+      <div class="profile-edit">Edit Profile</div>
+      <div class="profile-delete">Delete Profile</div>
+    </div>
+  </div>
+  <div class="log-counter">
+    <div class="total-logs-number">{{ user_logs|length }}</div>
+    <div class="total-logs-caption">Total logs</div>
+  </div>
+  <h2>User logs</h2>
+  {% for log in user_logs %}
+  <div class="profile-logs-container">
+    <img
+      class="profile-log-img"
+      src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ log.game.cover_id }}.jpg"
+      alt=""
+    />
+    <div class="profile-log-details">
+      
+        <div>
+          <a href="#" class="profile-log-game-name">{{ log.game.name }}</a>
+          logged on
+          <span class="profile-log-date">{{ log.date_posted }}</span>
+        </div>
+        <p>{{ log.review_text }}</p>
+        <div class="profile-log-content">
+        </div>
+        <div class="profile-log-options">
+          <div class="profile-log-likes-comments">
+            <div class="profile-log-likes">
+              <a href="#">
+                <i class="fa-solid fa-heart fa-sm"></i>
+                <p>10 Likes</p>
+              </a>
+            </div>
+            <div class="profile-log-comments">
+              <a href="#">
+                <i class="fa-solid fa-comment fa-sm"></i>
+                <p>{{ log.comment_set.all|length }} Comments</p>
+              </a>
+            </div>
+          </div>
+          <a href="{% url "log-details" log.game.slug log.id %}">Open Log</a>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

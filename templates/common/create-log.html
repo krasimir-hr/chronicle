@@ -2,13 +2,13 @@
 {% block content %}
 {% load custom_filters %}
 
-<div class="form-container large-form">
-    <h2>Log</h2>
-    <div class="log-container">
-        <div class="log-left-side">
-            <img class="log-img" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ cover_id }}.jpg" alt="">
+<div class="form-container large-frame">
+    <h2>Create a log</h2>
+    <div class="create-log-container">
+        <div class="create-log-left-side">
+            <img class="create-log-img" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ cover_id }}.jpg" alt="">
         </div>
-        <div class="log-right-side">
+        <div class="create-log-right-side">
             <p>I played {{ name }}...</p>
             <form method="post">
                 {% csrf_token %}
@@ -27,8 +27,6 @@
             </form>
         </div>
     </div>
-
-      
 </div>
 
 {% endblock content %}

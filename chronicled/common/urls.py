@@ -7,6 +7,6 @@ urlpatterns = [
     path('search/', views.SearchListView.as_view(), name='search'),
     path('log/<str:slug>/', include([
         path('add/', views.AddGameLogView.as_view(), name='add-log'),
+        path('<int:pk>/', views.LogDetailsView.as_view(), name='log-details')
     ]))
 ]
-path('profile/', include('chronicled.profiles.urls')),

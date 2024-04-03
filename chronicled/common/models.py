@@ -85,6 +85,9 @@ class Log(models.Model):
     def __str__(self):
         return f'Log for {self.game.name} by {self.user}'
 
+    class Meta:
+        ordering = ['-date_posted']
+
     @property
     def get_platform_name(self):
         return self.PLATFORM_NAMES[self.platform_id]

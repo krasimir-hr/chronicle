@@ -70,6 +70,9 @@ h3, .rating {
 
 }
 
+.key-word {
+    color:#BADEFC
+}
 
 nav {
     background-color: #14181C;
@@ -145,6 +148,7 @@ nav {
 }
 
 .content-wrap {
+    padding-top: 50px;
     margin: 0 auto;
     width: 90%;
     max-width: 1050px;
@@ -347,12 +351,15 @@ footer {
 .button {
     background-color: #606C38;
     color: #fefae0;
-    width: 50%;
+    width: 30%;
+    height: 25px;
+    font-size: 17px;
     text-align: center;
     border-radius: 5px;
     margin: 0 auto;
     margin-top: 5px;
     cursor: pointer;
+    border: none;
 }
 
 .button:hover {

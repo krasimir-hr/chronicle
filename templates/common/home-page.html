@@ -52,7 +52,7 @@
             {% for review in latest_reviews %}
             <div class="review">
               <div class="review-img-details">
-                <a href="#">
+                <a href="{% url "game-detail" review.game.slug %}">
                   <img class="review-poster" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ review.game.cover_id }}.jpg" alt=""/>
                 </a>
                 <div class="review-details">
@@ -68,7 +68,7 @@
                   </a>
                   <div class="review-title-and-year">
                     <p class="review-title">
-                      <a href="#">{{ review.game.name }}</a>
+                      <a href="{% url "game-detail" review.game.slug %}">{{ review.game.name }}</a>
                     </p>
                   </div>
                   <div class="review-platform">
@@ -95,7 +95,7 @@
                     </a>
                   </div>
                 </div>
-                <a href="">Open Review</a>
+                <a href="{% url "log-details" review.game.slug review.id %}">Open Review</a>
               </div>
             </div>
             {% endfor %}
