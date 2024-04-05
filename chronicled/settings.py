@@ -1,4 +1,5 @@
-from pathlib import Path, os
+import os
+from pathlib import Path
 from django.urls import reverse_lazy
 
 
@@ -6,9 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-!oz2ecxti=un6jrqyfzooy!11vb@j8ed8hmcl7mhq5ap9grz5n'
 
-DEBUG = False
+DEBUG = os.environ.get("DEBUG")
 
-ALLOWED_HOSTS = ['https://chronicled.azurewebsites.net']
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -61,11 +62,11 @@ WSGI_APPLICATION = 'chronicled.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "chronicled-database",
-        "USER": "kxxwkqfyrm",
-        "PASSWORD": "88YNJ34P4150BW57$",
-        "HOST": "chronicled-server.postgres.database.azure.com",
-        "PORT": "5432",
+        "NAME": os.environ.get("POSTGRES_DB"),
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "HOST": os.environ.get("POSTGRES_HOST"),
+        "PORT": os.environ.get("POSTGRES_PORT"),
     }
 }
 
