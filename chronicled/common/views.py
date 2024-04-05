@@ -16,7 +16,15 @@ from chronicled.games.models import Game
 UserModel = get_user_model()
 
 
-class HomePageView(LoginRequiredMixin, TemplateView):
+class HomePageView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return AuthenticatedHomeView.as_view()(request, *args, **kwargs)
+        else:
+            return NonAuthenticatedHomeView.as_view()(request, *args, **kwargs)
+
+
+class AuthenticatedHomeView(LoginRequiredMixin, TemplateView):
     template_name = 'common/home-page.html'
 
     def get_context_data(self, **kwargs):
@@ -63,6 +71,10 @@ class HomePageView(LoginRequiredMixin, TemplateView):
         context['welcome_name'] = get_welcome_name()
 
         return context
+
+
+class NonAuthenticatedHomeView(TemplateView):
+    template_name = 'common/landing-page.html'
 
 
 class SearchListView(LoginRequiredMixin, ListView):

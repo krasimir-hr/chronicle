@@ -49,7 +49,7 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
 UserModel = get_user_model()
 
 
-def profile_picutre_path(instance, filename):
+def profile_picture_path(instance, filename):
     username = instance.user.username
     _, ext = os.path.splitext(filename)
     return f'profile-pictures/{username}-profile-pic{ext}'
@@ -85,7 +85,7 @@ class Profile(models.Model):
         null=True,
         blank=True,
         validators=(validate_file_size,),
-        upload_to=profile_picutre_path,
+        upload_to=profile_picture_path,
         default='profile-pictures/default.webp',
     )
 

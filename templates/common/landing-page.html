@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content-wrap">
+        <section id="hero">
+            <div class="container">
+                <h2>Keep track of your gaming adventures</h2>
+                <p>With Gaming Logbook, never lose track of your gaming progress again. Record your achievements, track
+                    your
+                    playtime, and share your gaming journey with friends.</p>
+                <a href="#features" class="btn">Learn More</a>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2>Features</h2>
+                <div class="feature">
+                    <h3>Game Logging</h3>
+                    <p>Log your gaming sessions, track your playtime, and take notes on your progress.</p>
+                </div>
+                <div class="feature">
+                    <h3>Achievement Tracking</h3>
+                    <p>Keep track of your in-game achievements and milestones.</p>
+                </div>
+                <div class="feature">
+                    <h3>Community Sharing</h3>
+                    <p>Share your gaming accomplishments with friends and the gaming community.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>We are passionate gamers who wanted to create a platform to help fellow gamers keep track of their
+                    gaming
+                    experiences.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Have questions or feedback? Feel free to reach out to us!</p>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit" class="btn">Send</button>
+                </form>
+            </div>
+        </section>
+    </div>
+{% endblock %}

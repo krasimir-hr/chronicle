@@ -6,9 +6,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-!oz2ecxti=un6jrqyfzooy!11vb@j8ed8hmcl7mhq5ap9grz5n'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://chronicled.azurewebsites.net']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -61,10 +61,10 @@ WSGI_APPLICATION = 'chronicled.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "chronicle-db",
-        "USER": "postgres",
-        "PASSWORD": "password",
-        "HOST": "127.0.0.1",
+        "NAME": "chronicled-database",
+        "USER": "kxxwkqfyrm",
+        "PASSWORD": "88YNJ34P4150BW57$",
+        "HOST": "chronicled-server.postgres.database.azure.com",
         "PORT": "5432",
     }
 }
@@ -97,6 +97,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR / 'media/')

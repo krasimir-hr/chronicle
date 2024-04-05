@@ -245,6 +245,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     height: 150px;
+    max-width: 380px;
 }
 
 .review-user {
@@ -284,6 +285,12 @@ nav {
     margin-right: 5px;
     padding-top: 0;
     color: #FFFFFF;
+}
+
+.review-title {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .review-year {
