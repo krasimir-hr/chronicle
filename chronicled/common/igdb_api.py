@@ -1,6 +1,4 @@
 import requests
-from tabulate import tabulate
-import pandas as pd
 from datetime import datetime
 import datetime
 
