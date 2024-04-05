@@ -1,16 +1,22 @@
+import os.path
+
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth import get_user_model
+from django.core.validators import MinLengthValidator
 from django.db import models
+from django.utils.text import slugify
 
-
-from chronicled.profiles.validators import validate_file_size
+from chronicled.profiles.validators import validate_file_size, validate_no_spaces
 from chronicled.profiles.managers import AppUserManager
+
 
 class AppUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
+        max_length=20,
         unique=True,
         null=False,
         blank=False,
+        validators=[validate_no_spaces, MinLengthValidator(5)],
     )
 
     email = models.EmailField(
@@ -27,13 +33,27 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
         default=True,
     )
 
+    slug = models.SlugField(unique=True, blank=True)
+
     objects = AppUserManager()
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.username)
+        super().save(*args, **kwargs)
+
 
 UserModel = get_user_model()
+
+
+def profile_picutre_path(instance, filename):
+    username = instance.user.username
+    _, ext = os.path.splitext(filename)
+    return f'profile-pictures/{username}-profile-pic{ext}'
+
 
 class Profile(models.Model):
     NAME_MAX_SIZE = 30
@@ -65,7 +85,8 @@ class Profile(models.Model):
         null=True,
         blank=True,
         validators=(validate_file_size,),
-        upload_to='images/profile-pictures'
+        upload_to=profile_picutre_path,
+        default='profile-pictures/default.webp',
     )
 
 

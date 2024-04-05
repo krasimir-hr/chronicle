@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+{% load custom_filters %}
+{% load static %}
+
+    <div class="form-container">
+        <h2>Edit profile</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if profile.profile_picture %}
+                <div class="profile-picture">
+            	    <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture">
+                </div>
+            {% else %}
+                <div class="profile-picture">
+                    <img src="{% static 'images/anon-user.webp' %}" alt="">
+                </div>
+            {% endif %}
+            {{ form.profile_picture|placeholder:'Profile picture' }}
+            {{ form.first_name|placeholder:'First name' }}
+            {{ form.first_name.errors }}
+            {{ form.last_name|placeholder:'Last name' }}
+            {{ form.last_name.errors }}
+            {{ form.date_of_birth|placeholder:'Date of birth' }}
+            {{ form.date_of_birth.errors }}
+
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+{% endblock %}

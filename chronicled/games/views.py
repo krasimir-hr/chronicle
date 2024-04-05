@@ -1,3 +1,5 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView, TemplateView
 from django.http import Http404
@@ -13,14 +15,14 @@ class GameDetailView(TemplateView):
         context = super().get_context_data(**kwargs)
         slug = self.kwargs.get('slug')
         game = fetch_game_by_slug(slug)
-
-        # game_db, created = Game.objects.get_or_create(slug=slug)
-
-        # if created:
-        #     game_data = fetch_game_by_slug(slug)
-        #     game_db.name = game_data[0]['name']
-        #     game_db.slug = slug
-        #     game_db.save()
+        try:
+            game_db = Game.objects.get(slug=slug)
+            average_rating = game_db.average_rating
+            game_logs = game_db.logs.all()
+            context['average_rating'] = average_rating
+            context['logs'] = game_logs
+        except ObjectDoesNotExist:
+            pass
 
         context['name'] = game[0]['name']
         context['release_date'] = game[0]['first_release_date']
@@ -29,10 +31,11 @@ class GameDetailView(TemplateView):
         context['companies'] = get_companies(game)
         context['genres'] = get_genres(game)
         context['platforms'] = get_platforms(game)
+
         screenshots = game[0].get('screenshots', [])
         if screenshots:
-            context['screenshot'] =  screenshots[0]['image_id']
+            context['screenshot'] = screenshots[0]['image_id']
         else:
             context['screenshot'] = None
-        
+
         return context

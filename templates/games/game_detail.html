@@ -1,136 +1,117 @@
 {% extends "base.html" %}
-{% block content %}
 {% load static %}
+{% load custom_filters %}
+{% block content %}
 
-<div class="screenshot-container">
-    <div class="fade"></div>
-    {% if screenshot %}
-        <img class="game-screenshot" src="https://images.igdb.com/igdb/image/upload/t_original/{{ screenshot }}.webp" alt="">
-    {% else %}
-        <img class="game-screenshot" src="https://img.freepik.com/premium-vector/horizontal-wide-blue-sky-blurred-background-sunset-sunrise-sea-blurred-background_136277-922.jpg" alt="">
-    {% endif %}
-</div>
 
-<div class="game-container">
-    <div class="game-data-container">
-        <div class="left-sidebar">
-            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ cover_id }}.jpg" alt="">
-            <div class="game-stats">
-                <div class="game-button">
-                    <i class="fa-solid fa-gamepad"></i>
-                    <p>5</p>
-                </div>
-                <div class="game-button">
-                    <i class="fa-regular fa-heart"></i>
-                    <p>50</p>
-                </div>
-                <div class="game-button">
-                    <i class="fa-solid fa-gift"></i>
-                    <p>1</p>
-                </div>
-            </div>
-            <a href="{% url "add-log" slug %}">
-                <div class="log-or-review-button">
-                    Log or review
-                </div>
-            </a>
-            <p class="game-rate"><span>9.3</span>/10</p>
-            <div class="column">
-                Available on:
-                {% for platform in platforms %}
-                <a href="" class="game-platform">{{ platform }}</a>
-                {% endfor %}
-            </div>
-            <div class="column">
-                Genres:
-                {% for genre in genres %}
-                    <a href="" class="game-platform">{{ genre }}</a>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="main-content">
-            <h1 class="game-title">{{ name }}</h1>
-            <p class="release-info">
-                {{ release_date }} | {{ companies }}
-            </p>
-            <p>{{ summary }}</p>
-            <div class="game-reviews-container">
-                <h2>Latest reviews for this game</h2>
-                <div class="game-review-container">
-                    <img class="game-review-img" src="{% static "images/profile-pic.jpg" %}" alt="">
-                    <div class="game-review-main">
-                        <p>
-                            Review by <span>Krasio</span>
-                            
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </p>
-                        <p>
-                            Played on Playstaion 5
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem mauris, auctor at nibh ultricies, scelerisque hendrerit quam. Integer porttitor ligula a cursus rhoncus. Ut quis est sem. Curabitur nibh sem, ultricies eu velit quis, imperdiet varius diam. 
-                        </p>
-                        <div class="review-options">
-                            <div class="review-like-share">
-                              <div class="review-likes">
-                                <a href="#">
-                                  <i class="fa-regular fa-heart fa-sm"></i>
-                                </a>
-                                <p>10 Likes</p>
-                              </div>
-                              <div class="review-comments">
-                                <a href="#">
-                                  <i class="fa-regular fa-comment fa-sm"></i>
-                                  <p>10 Comments</p>
-                                </a>
-                              </div>
-                            </div>
-                            <a href="">Open Review</a>
-                          </div>
+    <div class="screenshot-container">
+        <div class="fade"></div>
+        {% if screenshot %}
+            <img class="game-screenshot"
+                 src="https://images.igdb.com/igdb/image/upload/t_original/{{ screenshot }}.webp" alt="">
+        {% else %}
+            <img class="game-screenshot"
+                 src="https://img.freepik.com/premium-vector/horizontal-wide-blue-sky-blurred-background-sunset-sunrise-sea-blurred-background_136277-922.jpg"
+                 alt="">
+        {% endif %}
+    </div>
+
+    <div class="game-container">
+        <div class="game-data-container">
+            <div class="left-sidebar">
+                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ cover_id }}.jpg" alt="">
+                <a href="{% url "add-log" slug %}">
+                    <div class="log-or-review-button">
+                        Log +
                     </div>
+                </a>
+                {% if average_rating %}
+                    <p class="game-rate"><span>{{ average_rating }}</span>/10</p>
+                {% else %}
+                    No ratings yet
+                {% endif %}
+                <div class="column">
+                    Available on:
+                    {% for platform in platforms %}
+                        <p class="key-word">{{ platform }}</p>
+                    {% endfor %}
                 </div>
-                <div class="game-review-container">
-                    <img class="game-review-img" src="{% static "images/profile-pic.jpg" %}" alt="">
-                    <div class="game-review-main">
-                        <p>
-                            Review by <span>Krasio</span>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis enim ipsum, porttitor et blandit eget, vestibulum vel nulla. Cras sem mauris, auctor at nibh ultricies, scelerisque hendrerit quam. Integer porttitor ligula a cursus rhoncus. Ut quis est sem. Curabitur nibh sem, ultricies eu velit quis, imperdiet varius diam. 
-                        </p>
-                        <div class="review-options">
-                            <div class="review-like-share">
-                              <div class="review-likes">
-                                <a href="#">
-                                  <i class="fa-regular fa-heart fa-sm"></i>
+                <div class="column">
+                    Genres:
+                    {% for genre in genres %}
+                        <p class="key-word">{{ genre }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="main-content">
+                <h1 class="game-title">{{ name }}</h1>
+                <p class="release-info">
+                    {{ release_date }} | {{ companies }}
+                </p>
+                <p>{{ summary }}</p>
+                <div class="game-reviews-container">
+                    <h2>Latest logs for this game</h2>
+                    {% if logs %}
+                        {% for log in logs %}
+                            <div class="game-review-container">
+                                <a href="{% url 'profile-details' log.user.slug %}">
+                                    <img class="game-review-img" src="{{ log.user.profile.profile_picture.url }}"
+                                         alt="">
                                 </a>
-                                <p>10 Likes</p>
-                              </div>
-                              <div class="review-comments">
-                                <a href="#">
-                                  <i class="fa-regular fa-comment fa-sm"></i>
-                                  <p>10 Comments</p>
-                                </a>
-                              </div>
+                                <div class="game-review-main">
+                                    <p>
+                                        Log by
+                                        <a href="{% url 'profile-details' log.user.slug %}">
+                                            {% if log.user.profile.first_name %}
+                                                {{ log.user.profile.first_name }}
+                                            {% else %}
+                                                {{ log.user.username }}
+                                            {% endif %}
+                                        </a>
+                                        on {{ log.date_posted }}
+                                    </p>
+                                    <p class="review-rating">{{ log.rating|rating_stars }}</p>
+                                    {% if log.review_text %}
+                                        <p>" {{ log.review_text }} "</p>
+                                    {% endif %}
+                                    <div class="profile-log-options">
+                                        <div class="profile-log-likes-comments">
+                                            <div class="profile-log-likes">
+                                                <a href="{% url 'like' log.id %}">
+                                                    {% if log.like_set.all %}
+                                                        <i class="fa-solid fa-heart fa-sm fa-col liked"></i>
+                                                    {% else %}
+                                                        <i class="fa-regular fa-heart fa-sm"></i>
+                                                    {% endif %}
+                                                    {% if log.like_set.all|length != 1 %}
+                                                        <p>{{ log.like_set.all|length }} likes</p>
+                                                    {% else %}
+                                                        <p>{{ log.like_set.all|length }} like</p>
+                                                    {% endif %}
+                                                </a>
+                                            </div>
+                                            <div class="profile-log-comments">
+                                                <a href="{% url "log-details" log.game.slug log.id %}">
+                                                    <i class="fa-solid fa-comment fa-sm"></i>
+                                                    {% if log.comment_set.all|length != 1 %}
+                                                        <p>{{ log.comment_set.all|length }} comments</p>
+                                                    {% else %}
+                                                        <p>{{ log.comment_set.all|length }} comment</p>
+                                                    {% endif %}
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="{% url "log-details" log.game.slug log.id %}">Open Review</a>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="">Open Review</a>
-                          </div>
-                    </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No logs yet.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 {% endblock content %}

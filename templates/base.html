@@ -2,91 +2,92 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Chronicled</title>
 
-    <link rel="stylesheet" href="{% static "css/styles.css" %}" /> 
-    <link rel="icon" type="image/x-icon" href="{% static "images/swords-icon.svg" %}"/> 
+    <link rel="stylesheet" href="{% static "css/styles.css" %}"/>
+    <link rel="icon" type="image/x-icon" href="{% static "images/swords-icon.svg" %}"/>
 
     <script src="https://kit.fontawesome.com/2c665bbf8a.js" crossorigin="anonymous"></script>
-  </head>
+</head>
 
-  <body>
-    <header>
-      <nav>
+<body>
+<header>
+    <nav>
         <div class="navbar">
-          <a href="{% url "home-page" %}" class="brand-container">
-            <img class="logo" src="{% static "images/swords-icon.svg" %}"
-            alt="logo" />
-            <h1>Chronicled</h1>
-          </a>
-          <ul class="menu">
-            {% if not request.user.is_authenticated %}
-              <li>
-                <a href="{% url "login" %}">Sign in</a>
-              </li>
-              <li>
-                <a href="{% url "registration" %}">Create an account</a>
-              </li>
-            {% else %}
-              <li>
-                <div class="current-user">
-                  <a href="#">
-                    <img class="user-icon" src="{% static "images/profile-pic.jpg" %}" alt="" />
-                    {{ logged_in_user.username }}
-                  </a>
-                </div>
-              </li>
-              <li>
-                <a href="#">Library</a>
-              </li>
-              <li>
-                <form method="post" action="{% url 'logout' %}">
-                  {% csrf_token %}
-                  <button class="menu" type="submit">Logout</button>
-              </form>
-              </li>
-              <form action="{% url "search" %}" method="get">
-                <input class="search-bar" type="text id" name="q" placeholder="Search..." >
-              </form>
-            {% endif %}
-              
+            <a href="{% url "home-page" %}" class="brand-container">
+                <img class="logo" src="{% static "images/swords-icon.svg" %}"
+                     alt="logo"/>
+                <h1>Chronicled</h1>
+            </a>
+            <ul class="menu">
+                {% if not request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url "login" %}">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="{% url "registration" %}">Create an account</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <div class="current-user">
+                            <a href="{% url 'profile-details' logged_in_user.slug %}">
+                                <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
+                                {% if logged_in_user.profile.first_name %}
+                                    {{ logged_in_user.profile.first_name }}
+                                {% else %}
+                                    {{ logged_in_user.username }}
+                                {% endif %}
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button class="menu" type="submit">Logout</button>
+                        </form>
+                    </li>
+                    <form action="{% url "search" %}" method="get">
+                        <input class="search-bar" type="text id" name="q" placeholder="Search...">
+                    </form>
+                {% endif %}
+
 
             </ul>
             <li class="hamburger-icon">
-              <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars"></i>
             </li>
-          
+
 
         </div>
-      </nav>
-    </header>
+    </nav>
+</header>
 
-    <main>
+<main>
 
-        {% block content %}
-        {% endblock content %}
-    
-    </main>
-    <footer>
-      <div class="content-wrap">
+    {% block content %}
+    {% endblock content %}
+
+</main>
+<footer>
+    <div class="content-wrap">
         <div class="personal-information">
-          <p>Created by Krasimir Hristov</p>
-          <div class="socials">
-            <a href="#">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="#">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-          </div>
+            <p>Created by Krasimir Hristov</p>
+            <div class="socials">
+                <a href="#">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
         </div>
-      </div>
-    </footer>
-  </body>
+    </div>
+</footer>
+</body>
 </html>

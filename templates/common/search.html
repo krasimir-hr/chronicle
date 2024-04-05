@@ -18,8 +18,7 @@
                 </div>
                 <p class="search-summary">{{ game.summary }}</p>
                 <div class="log-review-container">
-                    <a href="#" class='log-button'>Add log</a>
-                    <a href="#" class='log-button'>Add review</a>
+                    <a href="{% url 'add-log' game.slug %}" class='log-button'>Add log</a>
                 </div>
             </div>
             

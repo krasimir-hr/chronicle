@@ -1,106 +1,127 @@
 {% extends "base.html" %}
-{% block content %}
 {% load static %}
 {% load custom_filters %}
+{% block content %}
 
-      <div class="content-wrap">
+    <div class="content-wrap">
         <p class="welcome-message">
-          Welcome back 
-          <a href="#">{{ logged_in_user.username }}</a>, have you completed any games
-          recently?
+            Welcome back <a href="{% url 'profile-details' logged_in_user.slug %}">{{ welcome_name }}</a>, have you
+            completed any games recently?
         </p>
-        
+
+
         <section id="trending-games" class="games-section">
-          <h2>Trending games</h2>
-          <div class="game-posters">
-            {% for game in trending_games %}
-            <a href="{% url "game-detail" game.slug %}">
-              
-              <div class="game-poster">
-                <img class="game-img" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover_id }}.jpg" alt=""/>
-                <div class="game-name-rating">
-                  <h3>{{ game.name }}</h3>
-                  <span class="rating">{{ game.average_rating }}/10</span>
-                </div>
-              </div>
-            </a>
-            {% endfor %}
-          </div>
+            <h2>Trending games</h2>
+            <div class="game-posters">
+                {% for game in trending_games %}
+                    <a href="{% url "game-detail" game.slug %}">
+
+                        <div class="game-poster">
+                            <img class="game-img"
+                                 src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover_id }}.jpg"
+                                 alt=""/>
+                            <div class="game-name-rating">
+                                <h3>{{ game.name }}</h3>
+                                <span class="rating">{{ game.average_rating }}/10</span>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
         </section>
-        
+
         <section id="newly-logged" class="games-section">
-          <h2>Newest logs</h2>
-          <div class="game-posters">
-            {% for game in highest_rated_games %}
-            <a href="{% url "game-detail" game.slug %}">
-              
-              <div class="game-poster">
-                <img class="game-img" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover_id }}.jpg" alt=""/>
-                <div class="game-name-rating">
-                  <h3>{{ game.name }}</h3>
-                  <span class="rating">{{ game.average_rating }}/10</span>
-                </div>
-              </div>
-            </a>
-            {% endfor %}
-          </div>
+            <h2>Highest rated games</h2>
+            <div class="game-posters">
+                {% for game in highest_rated_games %}
+                    <a href="{% url "game-detail" game.slug %}">
+
+                        <div class="game-poster">
+                            <img class="game-img"
+                                 src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover_id }}.jpg"
+                                 alt=""/>
+                            <div class="game-name-rating">
+                                <h3>{{ game.name }}</h3>
+                                <span class="rating">{{ game.average_rating }}/10</span>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
         </section>
 
         <section id="latest-reviews" class="games-section">
-          <h2>Latest reviews</h2>
-          <div class="reviews-container">
-            {% for review in latest_reviews %}
-            <div class="review">
-              <div class="review-img-details">
-                <a href="{% url "game-detail" review.game.slug %}">
-                  <img class="review-poster" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ review.game.cover_id }}.jpg" alt=""/>
-                </a>
-                <div class="review-details">
-                  <a href="#">
-                    <div class="review-user">
-                      <img
-                        class="user-icon"
-                        src="{% static "images/profile-pic.jpg" %}"
-                        alt=""
-                      />
-                      <p>{{ review.user }}</p>
+            <h2>Latest reviews</h2>
+            <div class="reviews-container">
+                {% for review in latest_reviews %}
+                    <div class="review">
+                        <div class="review-img-details">
+                            <a href="{% url "game-detail" review.game.slug %}">
+                                <img class="review-poster"
+                                     src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ review.game.cover_id }}.jpg"
+                                     alt=""/>
+                            </a>
+                            <div class="review-details">
+                                <a href="{% url 'profile-details' review.user.slug %}">
+                                    <div class="review-user">
+                                        <img class="user-icon" src="{{ review.user.profile.profile_picture.url }}"
+                                             alt=""/>
+                                        {% if review.user.profile.first_name %}
+                                            {{ review.user.profile.first_name }}
+                                        {% else %}
+                                            {{ review.user.username }}
+                                        {% endif %}
+                                </a>
+                            </div>
+                            </a>
+                            <div class="review-title-and-year">
+                                <p class="review-title">
+                                    <a href="{% url "game-detail" review.game.slug %}">{{ review.game.name }}</a>
+                                </p>
+                            </div>
+                            <div class="review-platform">
+                                <p>completed on <span class="key-word">{{ review.get_platform_name }}</span></p>
+                            </div>
+                            <p class="review-rating">{{ review.rating|rating_stars }}</p>
+                        </div>
                     </div>
-                  </a>
-                  <div class="review-title-and-year">
-                    <p class="review-title">
-                      <a href="{% url "game-detail" review.game.slug %}">{{ review.game.name }}</a>
+                    <p class="review-text">
+                        "{{ review.review_text }}"
                     </p>
-                  </div>
-                  <div class="review-platform">
-                    <p>completed on <a href="#">{{ review.get_platform_name }}</a></p>
-                  </div>
-                  <span class="review-rating">{{ review.rating|rating_stars }}</span>
-                </div>
-              </div>
-              <p class="review-text">
-                "{{ review.review_text }}"
-              </p>
-              <div class="review-options">
-                <div class="review-like-share">
-                  <div class="review-likes">
-                    <a href="#">
-                      <i class="fa-regular fa-heart fa-sm"></i>
-                    </a>
-                    <p>10 Likes</p>
-                  </div>
-                  <div class="review-comments">
-                    <a href="#">
-                      <i class="fa-regular fa-comment fa-sm"></i>
-                      <p>10 Comments</p>
-                    </a>
-                  </div>
-                </div>
-                <a href="{% url "log-details" review.game.slug review.id %}">Open Review</a>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </section>
-      </div>
-      
+                    <div class="review-options">
+                        <div class="profile-log-likes-comments">
+                            <div class="profile-log-likes">
+                                <a href="{% url 'like' review.id %}">
+                                    {% if review.like_set.all %}
+                                        <i class="fa-solid fa-heart fa-sm fa-col liked"></i>
+                                    {% else %}
+                                        <i class="fa-regular fa-heart fa-sm"></i>
+                                    {% endif %}
+                                    {% if review.like_set.all|length != 1 %}
+                                        <p>{{ review.like_set.all|length }} likes</p>
+                                    {% else %}
+                                        <p>{{ review.like_set.all|length }} like</p>
+                                    {% endif %}
+                                </a>
+
+                            </div>
+                            <div class="profile-log-comments">
+                                <a href="{% url "log-details" review.game.slug review.id %}">
+                                    <i class="fa-solid fa-comment fa-sm"></i>
+                                    {% if review.comment_set.all|length != 1 %}
+                                        <p>{{ review.comment_set.all|length }} comments</p>
+                                    {% else %}
+                                        <p>{{ review.comment_set.all|length }} comment</p>
+                                    {% endif %}
+                                </a>
+                            </div>
+                        </div>
+                        <a href="{% url "log-details" review.game.slug review.id %}">Open Review</a>
+                    </div>
+                    </div>
+                {% endfor %}
+    </div>
+    </section>
+    </div>
+
 {% endblock content %}

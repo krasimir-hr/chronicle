@@ -31,7 +31,12 @@ class LoginForm(AuthenticationForm):
     )
 
 
+
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['first_name', 'last_name', 'date_of_birth', 'profile_picture']
+        widgets = {
+            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
+            'profile_picture': forms.FileInput,
+        }

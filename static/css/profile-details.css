@@ -13,12 +13,22 @@
     display: flex;
 }
 
-.profile-picture img{
-    height: 100px;
-    border-radius: 5px;
+.profile-buttons {
+    padding-bottom: 10px;
 }
 
-.profile-name, .profile-edit, .profile-delete {
+.profile-picture img{
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.profile-picture {
+    text-align: center;
+}
+
+.profile-name, .profile-buttons a {
     align-self: flex-end;
 }
 

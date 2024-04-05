@@ -32,11 +32,11 @@ class Log(models.Model):
         '5': 'NINTENDO Wii',
         '41': 'NINTENDO Wii U',
         '130': 'NINTENDO Switch',
-        '7': 'PS1',
-        '2': 'PS2',
-        '3': 'PS3',
-        '48': 'PS4',
-        '167': 'PS5',
+        '7': 'PlayStation 1',
+        '2': 'PlayStation 2',
+        '3': 'PlayStation 3',
+        '48': 'PlayStation 4',
+        '167': 'PlayStation 5',
         '12': 'XBOX 360',
         '49': 'XBOX ONE',
         '169': 'XBOX SERIES X|S',
@@ -93,7 +93,6 @@ class Log(models.Model):
         return self.PLATFORM_NAMES[self.platform_id]
     
 
-
 class Like(models.Model):
     to_log = models.ForeignKey(
         to=Log,
@@ -104,6 +103,7 @@ class Like(models.Model):
         UserModel,
         on_delete=models.CASCADE
     )
+
 
 class Comment(models.Model):
     to_log = models.ForeignKey(
@@ -126,3 +126,15 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['-date_time_posted']
+
+
+class CommentLike(models.Model):
+    to_comment = models.ForeignKey(
+        to=Comment,
+        on_delete=models.CASCADE
+    )
+
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE
+    )

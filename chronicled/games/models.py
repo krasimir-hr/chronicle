@@ -26,6 +26,8 @@ class Game(models.Model):
 
         if int(avg_r) == avg_r:
             avg_r = int(avg_r)
+        else:
+            avg_r = round(avg_r, 2)
 
         return avg_r
 

@@ -71,7 +71,7 @@ h3, .rating {
 }
 
 .key-word {
-    color:#BADEFC
+    color:#FFFFFF
 }
 
 nav {
@@ -95,7 +95,7 @@ nav {
     margin-left: auto;
     list-style-type: none;
     align-items: center;
-    font-family: "Kanit";    
+    font-family: "Kanit", serif;    
     font-size: 20px;
 }
 
@@ -119,9 +119,10 @@ nav {
 
 .current-user img {
     height: 20px;       
-    width: auto;
+    width: 20px;
     margin-right: 5px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 
@@ -139,7 +140,7 @@ nav {
 .welcome-message {
     font-size: 20px;
     text-align: center;
-    margin: 15px 0 15px 0;
+    margin-bottom: 20px;
 }
 
 .welcome-message span {
@@ -235,6 +236,8 @@ nav {
 .review-poster {
     height: 150px;
     margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(236, 236, 236, 0.1);
 }
 
 .review-details {
@@ -248,7 +251,6 @@ nav {
     display: flex;
     align-items: center;
     white-space: nowrap;
-    text-transform: uppercase;
     line-height: 1.2;
 }
 
@@ -258,9 +260,10 @@ nav {
 
 .review-user img {
     height: 15px;       
-    width: auto;
+    width: 15px;
     margin-right: 5px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .review-title-and-year {
@@ -294,6 +297,10 @@ nav {
     line-height: 1.2;
 }
 
+.review-rating {
+    color: #00C030;
+}
+
 .review-text {
     font-size: 15px;
 }
@@ -312,6 +319,10 @@ nav {
 .review-like-share, .review-likes, .review-comments a {
     display: flex;
     align-items: center;
+}
+
+.liked {
+    color: #D81E5B;
 }
 
 .review-likes {

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
+
+    <div class="review-container large-frame">
+
+        <h2 class="log-h2">Log
+            {% if log.user == request.user %}
+                <div class="profile-buttons">
+                    <a href="#">
+                        <div class="profile-edit">Edit Log</div>
+                    </a>
+                    <a href="#">
+                        <div class="profile-delete">Delete Log</div>
+                    </a>
+                </div>
+            {% endif %}
+        </h2>
+
+
+        <div class="inner-review-container">
+            <a href="{% url 'game-detail' log.game.slug %}">
+                <img class="review-img"
+                     src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ log.game.cover_id }}.jpg" alt="">
+            </a>
+            <div class="review-and-comments">
+                <div class="game-review-container">
+                    <a href="{% url 'profile-details' log.user.slug %}">
+                        <img class="game-review-img" src="{{ log.user.profile.profile_picture.url }}" alt="">
+                    </a>
+                    <div class="game-review-main">
+                        <p>
+                            <a href="{% url 'profile-details' log.user.slug %}">
+                                {% if log.user.profile.first_name %}
+                                    {{ log.user.profile.first_name }}
+                                {% else %}
+                                    {{ log.user.username }}
+                                {% endif %}
+                            </a>
+                            logged
+                            <a href="{% url 'game-detail' log.game.slug %}">{{ log.game.name }}</a>
+
+                        </p>
+                        <p>Played on <span class="key-word">{{ log.get_platform_name }}</span></p>
+                        <p class="review-rating">{{ log.rating|rating_stars }}</p>
+                        {% if log.review_text %}
+                            <p>" {{ log.review_text }} "</p>
+                        {% endif %}
+                        <div class="profile-log-likes-comments">
+                            <div class="profile-log-likes">
+                                <a href="{% url 'like' log.id %}">
+                                    {% if log.like_set.all %}
+                                        <i class="fa-solid fa-heart fa-sm fa-col liked"></i>
+                                    {% else %}
+                                        <i class="fa-regular fa-heart fa-sm"></i>
+                                    {% endif %}
+                                    {% if log.like_set.all|length != 1 %}
+                                        <p>{{ log.like_set.all|length }} likes</p>
+                                    {% else %}
+                                        <p>{{ log.like_set.all|length }} like</p>
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <p>Logged on {{ log.date_posted }}</p>
+                        </div>
+                    </div>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ comment_form.text }}
+                    <button class="button">Comment</button>
+                </form>
+                <h2>{{ log.comment_set.all|length }} Comments</h2>
+                {% for comment in comments %}
+                    <div class="review-comment">
+                        <a href="{% url 'profile-details' comment.user.slug %}">
+                            <img class="game-review-img" src="{{ comment.user.profile.profile_picture.url }}" alt="">
+                        </a>
+                        <div class="game-review-main">
+                            <p><a href="{% url 'profile-details' comment.user.slug %}">
+                                {% if log.user.profile.first_name %}
+                                    {{ log.user.profile.first_name }}
+                                {% else %}
+                                    {{ log.user.username }}
+                                {% endif %}
+                            </a>
+                                commented:</p>
+                            <p>" {{ comment.text }} "</p>
+                            <div class="profile-log-likes-comments">
+                                <div class="profile-log-likes">
+                                    <a href="{% url 'comment-like' comment.id %}">
+                                        {% if comment.commentlike_set.all %}
+                                            <i class="fa-solid fa-heart fa-sm fa-col liked"></i>
+                                        {% else %}
+                                            <i class="fa-regular fa-heart fa-sm"></i>
+                                        {% endif %}
+                                        {% if comment.commentlike_set.all|length != 1 %}
+                                            <p>{{ comment.commentlike_set.all|length }} likes</p>
+                                        {% else %}
+                                            <p>{{ comment.commentlike_set.all|length }} like</p>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <p>Commented on {{ comment.date_time_posted }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
