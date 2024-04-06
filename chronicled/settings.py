@@ -9,7 +9,13 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.environ.get("DEBUG")
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+allowed_hosts_str = os.environ.get("ALLOWED_HOSTS")
+
+if allowed_hosts_str:
+    ALLOWED_HOSTS = allowed_hosts_str.split(" ")
+
+else:
+    ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
