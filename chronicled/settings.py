@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-!oz2ecxti=un6jrqyfzooy!11vb@j8ed8hmcl7mhq5ap9grz5n
 DEBUG = False
 
 if not DEBUG:
-    ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
+    ALLOWED_HOSTS = ['chronicled.azurewebsites.net', 'chronicled.krasye.com']
 
 else:
     ALLOWED_HOSTS = ['*']
