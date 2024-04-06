@@ -98,8 +98,7 @@
     width: 50%;
     text-align: center;
     border-radius: 5px;
-    margin: 0 auto;
-    margin-top: 5px;
+    margin: 5px auto 0;
 }
 
 .log-or-review-button:hover {

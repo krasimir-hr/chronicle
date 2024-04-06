@@ -1,83 +1,72 @@
-#hero {
-    background-image: url('background.jpg');
-    background-size: cover;
-    color: #fff;
+.lp-header {
     text-align: center;
-    padding: 100px 0;
 }
 
-#hero h2 {
-    font-size: 48px;
+.lp-header h1 {
+    font-size: 60px;
 }
 
-#hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
+.lp-header p {
+    font-size: 20px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f44336;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
+.lp-reg-log {
+    margin: 20px 0;
 }
 
-.btn:hover {
-    background-color: #ff6659;
-}
-
-/* Feature Section Styles */
-#features {
-    background-color: #f9f9f9;
-    padding: 80px 0;
-}
-
-.feature {
+.lp-register-btn {
+    background-color: #606C38;
+    color: #FFFFFF;
+    width: 200px;
     text-align: center;
-    margin-bottom: 40px;
-}
-
-.feature h3 {
-    font-size: 24px;
-}
-
-/* Contact Section Styles */
-#contact {
-    padding: 80px 0;
-}
-
-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-label, input, textarea {
-    display: block;
-    margin-bottom: 20px;
-}
-
-label {
-    font-weight: bold;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button[type="submit"] {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+    margin: 5px auto 0;
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
-    background-color: #45a049;
+.lp-register-btn:hover {
+    background-color: #748342;
+}
+
+.lp-hero {
+    border: none;
+    text-align: center;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.lp-main h3 {
+    font-size: 25px;
+    color: #d7d7d7;
+}
+
+.lp-main p {
+    font-size: 16px;
+}
+
+.lp-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.lp-text {
+    width: 40%;
+}
+
+.lp-section img {
+    width: 525px;
+    height: 234px;
+}
+
+.gaming-database-img {
+    width: 587px !important;
+    height: 326px !important;
+    float: left;
+}
+
+.user-review-img {
+    width: 510px !important;
+    height: 206px !important;
 }

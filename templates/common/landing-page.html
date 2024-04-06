@@ -1,57 +1,38 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     <div class="content-wrap">
-        <section id="hero">
-            <div class="container">
-                <h2>Keep track of your gaming adventures</h2>
-                <p>With Gaming Logbook, never lose track of your gaming progress again. Record your achievements, track
-                    your
-                    playtime, and share your gaming journey with friends.</p>
-                <a href="#features" class="btn">Learn More</a>
+        <div class="lp-header">
+            <h1>Chronicled</h1>
+            <p>Keep track of your gaming adventures! </p>
+            <div class="lp-reg-log">
+                <a href="#"><div class="lp-register-btn">Create an account</div></a>
+                <span> or <a href="#">login</a></span>
             </div>
-        </section>
-
-        <section id="features">
-            <div class="container">
-                <h2>Features</h2>
-                <div class="feature">
-                    <h3>Game Logging</h3>
-                    <p>Log your gaming sessions, track your playtime, and take notes on your progress.</p>
+        </div>
+        <div class="lp-main">
+            <h2 class="lp-hero">How Chronicled works</h2>
+            <div class="lp-section">
+                <div class="lp-text">
+                    <h3>Explore the latest trending games!</h3>
+                    <p>Dive into the world of gaming excitement with our curated selection of trending games! Stay up-to-date with the hottest titles that everyone is talking about. Whether you're into action-packed adventures, immersive role-playing experiences, or mind-bending puzzles, we have something for every gamer. Discover the pulse of the gaming community and embark on unforgettable gaming journeys today!</p>
                 </div>
-                <div class="feature">
-                    <h3>Achievement Tracking</h3>
-                    <p>Keep track of your in-game achievements and milestones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Community Sharing</h3>
-                    <p>Share your gaming accomplishments with friends and the gaming community.</p>
+                <img src="{% static 'images/trending-games.png' %}" alt="Trending games">
+            </div>
+            <div class="lp-section">
+                <img src="{% static 'images/log.png' %}" class="gaming-database-img" alt="Game info">
+                <div class="lp-text">
+                    <h3>Log your games</h3>
+                    <p>Access a comprehensive gaming database to log your favorite games. Find detailed information covering gameplay mechanics, developer insights, and player reviews. Whether you're a seasoned gamer seeking new challenges or a newcomer exploring the gaming landscape, our platform provides valuable insights to enrich your gaming experience. Dive in and effortlessly log your gaming history with ease.</p>
                 </div>
             </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <h2>About Us</h2>
-                <p>We are passionate gamers who wanted to create a platform to help fellow gamers keep track of their
-                    gaming
-                    experiences.</p>
+            <div class="lp-section">
+                <div class="lp-text">
+                    <h3>Read other user's reviews</h3>
+                    <p>Discover user feedback for your favorite games. Dive into gameplay insights, developer perspectives, and player opinions. Whether you're a seasoned gamer or new to the scene, find valuable insights to enhance your gaming experience. Explore now.</p>
+                </div>
+                <img src="{% static 'images/review.png' %}" class="user-review-img" alt="Trending games">
             </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <p>Have questions or feedback? Feel free to reach out to us!</p>
-                <form>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" required></textarea>
-                    <button type="submit" class="btn">Send</button>
-                </form>
-            </div>
-        </section>
+        </div>
     </div>
 {% endblock %}
