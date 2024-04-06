@@ -86,7 +86,7 @@ class Profile(models.Model):
         blank=True,
         validators=(validate_file_size,),
         upload_to=profile_picture_path,
-        default='profile-pictures/default.webp',
+        default='static/images/anon-user.webp',
     )
 
 
