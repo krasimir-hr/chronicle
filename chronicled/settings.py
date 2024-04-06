@@ -7,13 +7,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-!oz2ecxti=un6jrqyfzooy!11vb@j8ed8hmcl7mhq5ap9grz5n'
 
-DEBUG = False
+DEBUG = os.environ.get("DEBUG")
 
-if not DEBUG:
-    ALLOWED_HOSTS = ['chronicled.azurewebsites.net', 'chronicled.krasye.com']
+if DEBUG is True:
+    ALLOWED_HOSTS = ['*']
 
 else:
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['chronicled.azurewebsites.net', 'chronicled.krasye.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -130,4 +130,4 @@ LOGIN_REDIRECT_URL = reverse_lazy('home-page')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
-LOGIN_URL = ('login')
+LOGIN_URL = 'login'
