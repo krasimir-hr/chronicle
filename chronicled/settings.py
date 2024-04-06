@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 from django.urls import reverse_lazy
-import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -66,25 +65,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chronicled.wsgi.application'
 
-database_url = os.environ.get("DATABASE_URL")
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=database_url,
-        conn_max_age=600,
-    )
-}
-
-# DATABASES = {
-#         "default": {
-#             "ENGINE": "django.db.backends.postgresql",
-#             "NAME": "chronicle-db",
-#             "USER": "postgres",
-#             "PASSWORD": "password",
-#             "HOST": "127.0.0.1",
-#             "PORT": "5432",
-#         }
-#     }
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.environ.get("POSTGRES_DB"),
+            "USER": os.environ.get("POSTGRES_USER"),
+            "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+            "HOST": os.environ.get("POSTGRES_HOST"),
+            "PORT": os.environ.get("POSTGRES_PORT"),
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -109,11 +99,9 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = 'static/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 STORAGES = {
     "default": {
