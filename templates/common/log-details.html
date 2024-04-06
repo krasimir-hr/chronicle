@@ -8,10 +8,10 @@
         <h2 class="log-h2">Log
             {% if log.user == request.user %}
                 <div class="profile-buttons">
-                    <a href="#">
+                    <a href="{% url 'log-edit' log.game.slug log.id %}">
                         <div class="profile-edit">Edit Log</div>
                     </a>
-                    <a href="#">
+                    <a href="{% url 'log-delete' log.game.slug log.id %}">
                         <div class="profile-delete">Delete Log</div>
                     </a>
                 </div>
