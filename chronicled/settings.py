@@ -8,6 +8,7 @@ DEBUG = False
 
 # DEBUG = os.environ.get("DEBUG")
 
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 allowed_hosts_str = os.environ.get("ALLOWED_HOSTS")
 
@@ -17,7 +18,7 @@ if allowed_hosts_str:
 else:
     ALLOWED_HOSTS = []
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+
 
 # else:
 #     ALLOWED_HOSTS = ['*']
