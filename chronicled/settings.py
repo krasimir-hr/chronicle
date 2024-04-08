@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = True
+DEBUG = False
 
 # DEBUG = os.environ.get("DEBUG")
 
