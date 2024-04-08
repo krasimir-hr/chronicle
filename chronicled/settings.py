@@ -19,11 +19,6 @@ else:
     ALLOWED_HOSTS = []
 
 
-
-# else:
-#     ALLOWED_HOSTS = ['*']
-#     SECRET_KEY = '1234567890'
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -119,8 +114,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
 
 STORAGES = {
     "default": {
