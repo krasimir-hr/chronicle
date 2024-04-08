@@ -8,20 +8,20 @@ DEBUG = False
 
 # DEBUG = os.environ.get("DEBUG")
 
-if not DEBUG:
-    allowed_hosts_str = os.environ.get("ALLOWED_HOSTS")
 
-    if allowed_hosts_str:
-        ALLOWED_HOSTS = allowed_hosts_str.split(" ")
+allowed_hosts_str = os.environ.get("ALLOWED_HOSTS")
 
-    else:
-        ALLOWED_HOSTS = []
-
-    SECRET_KEY = os.environ.get("SECRET_KEY")
+if allowed_hosts_str:
+    ALLOWED_HOSTS = allowed_hosts_str.split(" ")
 
 else:
-    ALLOWED_HOSTS = ['*']
-    SECRET_KEY = '1234567890'
+    ALLOWED_HOSTS = []
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+# else:
+#     ALLOWED_HOSTS = ['*']
+#     SECRET_KEY = '1234567890'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -72,30 +72,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chronicled.wsgi.application'
 
-if not DEBUG:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": os.environ.get("POSTGRES_DB"),
-            "USER": os.environ.get("POSTGRES_USER"),
-            "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-            "HOST": os.environ.get("POSTGRES_HOST"),
-            "PORT": os.environ.get("POSTGRES_PORT"),
-        }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("POSTGRES_DB"),
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "HOST": os.environ.get("POSTGRES_HOST"),
+        "PORT": os.environ.get("POSTGRES_PORT"),
     }
+}
 
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": 'chronicle-db',
-            "USER": 'postgres',
-            "PASSWORD": 'password',
-            "HOST": 'localhost',
-            "PORT": '5432',
-        }
-    }
-
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": 'chronicle-db',
+#         "USER": 'postgres',
+#         "PASSWORD": 'password',
+#         "HOST": 'localhost',
+#         "PORT": '5432',
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
