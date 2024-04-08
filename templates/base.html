@@ -26,18 +26,20 @@
                         <a href="{% url "login" %}">Sign in</a>
                     </li>
                     <li>
-                        <a href="{% url "registration" %}">Create an account</a>
+                        <a href="{% url "registration" %}">Register</a>
                     </li>
                 {% else %}
                     <li>
                         <div class="current-user">
                             <a href="{% url 'profile-details' logged_in_user.slug %}">
                                 <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
-                                {% if logged_in_user.profile.first_name %}
-                                    {{ logged_in_user.profile.first_name }}
-                                {% else %}
-                                    {{ logged_in_user.username }}
-                                {% endif %}
+                                <span>
+                                    {% if logged_in_user.profile.first_name %}
+                                        {{ logged_in_user.profile.first_name }}
+                                    {% else %}
+                                        {{ logged_in_user.username }}
+                                    {% endif %}
+                                </span>
                             </a>
                         </div>
                     </li>
@@ -47,16 +49,13 @@
                             <button class="menu" type="submit">Logout</button>
                         </form>
                     </li>
-                    <form action="{% url "search" %}" method="get">
+                    <form class="navbar-search" action="{% url "search" %}" method="get">
                         <input class="search-bar" type="text id" name="q" placeholder="Search...">
                     </form>
                 {% endif %}
 
 
             </ul>
-            <li class="hamburger-icon">
-                <i class="fa-solid fa-bars"></i>
-            </li>
 
 
         </div>

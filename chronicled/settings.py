@@ -4,17 +4,24 @@ from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = True
 
-DEBUG = os.environ.get("DEBUG")
+# DEBUG = os.environ.get("DEBUG")
 
-allowed_hosts_str = os.environ.get("ALLOWED_HOSTS")
+if not DEBUG:
+    allowed_hosts_str = os.environ.get("ALLOWED_HOSTS")
 
-if allowed_hosts_str:
-    ALLOWED_HOSTS = allowed_hosts_str.split(" ")
+    if allowed_hosts_str:
+        ALLOWED_HOSTS = allowed_hosts_str.split(" ")
+
+    else:
+        ALLOWED_HOSTS = []
+
+    SECRET_KEY = os.environ.get("SECRET_KEY")
 
 else:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
+    SECRET_KEY = '1234567890'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -65,7 +72,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chronicled.wsgi.application'
 
-DATABASES = {
+if not DEBUG:
+    DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
             "NAME": os.environ.get("POSTGRES_DB"),
@@ -75,6 +83,19 @@ DATABASES = {
             "PORT": os.environ.get("POSTGRES_PORT"),
         }
     }
+
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": 'chronicle-db',
+            "USER": 'postgres',
+            "PASSWORD": 'password',
+            "HOST": 'localhost',
+            "PORT": '5432',
+        }
+    }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

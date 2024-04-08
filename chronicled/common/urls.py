@@ -4,6 +4,7 @@ from chronicled.common import views
 urlpatterns = [
     path('', views.HomePageView.as_view(), name='home-page'),
     path('search/', views.SearchListView.as_view(), name='search'),
+    path('terms-and-conditions', views.TermsAndConditionsView.as_view(), name='terms'),
     path('like/<int:log_id>/', views.LikeFunctionalityView.as_view(), name='like'),
     path('comment-like/<int:comment_id>/', views.CommentLikeFunctionalityView.as_view(), name='comment-like'),
     path('log/<str:slug>/', include([

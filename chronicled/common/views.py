@@ -239,3 +239,7 @@ class CommentLikeFunctionalityView(View):
 
         referer = request.META.get('HTTP_REFERER')
         return redirect(referer + f'#{comment_id}')
+
+
+class TermsAndConditionsView(TemplateView):
+    template_name = 'common/terms-and-conditions.html'

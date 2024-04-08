@@ -39,3 +39,37 @@ textarea[id="id_text"] {
     display: flex;
     justify-content: space-between;
 }
+
+@media (max-width: 600px) {
+    .inner-review-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inner-review-container img {
+        margin: 0;
+        width: 140px;
+        height: auto;
+    }
+
+    .game-review-profile-pic {
+        visibility: hidden;
+        width: 0;
+    }
+
+    .game-comment-profile-pic {
+        width: 50px;
+    }
+}
+
+@media (max-width: 450px) {
+
+
+    .game-review-main p {
+        font-size: 14px;
+    }
+
+    .log-date-p {
+        font-size: 13px !important;
+    }
+}

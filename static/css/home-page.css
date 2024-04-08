@@ -9,7 +9,6 @@ body {
     box-sizing: border-box;
     font-family: "Cairo";
     color: #8694A2;
-    min-width: 350px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -71,7 +70,7 @@ h3, .rating {
 }
 
 .key-word {
-    color:#FFFFFF
+    color: #FFFFFF
 }
 
 nav {
@@ -87,7 +86,7 @@ nav {
     max-width: 1050px;
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 .menu {
@@ -95,8 +94,9 @@ nav {
     margin-left: auto;
     list-style-type: none;
     align-items: center;
-    font-family: "Kanit", serif;    
+    font-family: "Kanit", serif;
     font-size: 20px;
+    padding: 0;
 }
 
 .menu a:hover, .menu button:hover {
@@ -105,6 +105,10 @@ nav {
 
 .menu li {
     margin-left: 15px;
+}
+
+.menu li:first-child {
+    margin: 0;
 }
 
 .user-arrow {
@@ -118,7 +122,7 @@ nav {
 }
 
 .current-user img {
-    height: 20px;       
+    height: 20px;
     width: 20px;
     margin-right: 5px;
     border-radius: 50%;
@@ -166,12 +170,13 @@ nav {
 .game-poster {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
+    width: 140px;
 }
 
 .game-img {
-    width: 170px;
-    height: 230px;
+    width: 150px;
+    height: auto;
     min-height: 1px;
     min-width: auto;
     margin-bottom: 0px;
@@ -181,8 +186,8 @@ nav {
     box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.5)
 }
 
-.game-poster:hover .game-img{
-    transition: outline 0.3s ease; 
+.game-poster:hover .game-img {
+    transition: outline 0.3s ease;
     outline-color: #FFFFFF;
 }
 
@@ -196,7 +201,7 @@ nav {
 }
 
 .game-name-rating {
-    width: 170px;
+    width: 100%;
     max-height: 24.5px;
     display: flex;
     justify-content: space-between;
@@ -260,7 +265,7 @@ nav {
 }
 
 .review-user img {
-    height: 15px;       
+    height: 15px;
     width: 15px;
     margin-right: 5px;
     border-radius: 50%;
@@ -374,8 +379,7 @@ footer {
     font-size: 17px;
     text-align: center;
     border-radius: 5px;
-    margin: 0 auto;
-    margin-top: 5px;
+    margin: 5px auto 0;
     cursor: pointer;
     border: none;
 }
@@ -384,54 +388,116 @@ footer {
     background-color: #748342;
 }
 
-.logout-button { 
+.logout-button {
     border: none;
     background-color: #20262C;
 }
 
-@media (max-width: 600px) {
+.tc {
+    margin-bottom: 50px;
+}
 
-    
-    .menu {
-        display: none;
-    }
-
-    .brand-container {
-        padding-left: 15px;
-    }
-
-    .hamburger-icon {
-        display: flex;
-        align-items: center;
-        font-size: 20px;
-        padding-right: 20px;
-    }
-
+@media (max-width: 900px) {
     .game-posters {
         flex-wrap: wrap;
     }
 
     .game-poster {
-        width: 150px;
+        width: 250px
     }
 
-    .game-img {
-        height: 200px;
-        width: auto;
+    .game-poster img {
+        width: 100%;
     }
 
-    h3, .rating {
-        font-size: 10px;
+}
+
+@media (max-width: 900px) {
+    .game-poster {
+        width: 200px
     }
 
     .reviews-container {
         column-count: 1;
-        column-gap: 20px;
+    }
+
+
+
+}
+
+@media (max-width: 600px) {
+    .current-user span {
+        display: none;
+    }
+
+    .navbar-search {
+        width: 80px;
+    }
+
+    .menu button {
+        font-size: 15px;
+    }
+
+    .game-poster {
+        width: 150px;
+    }
+}
+
+@media (max-width: 450px) {
+    .game-poster {
+        width: 100px;
+    }
+}
+
+@media (max-width: 370px) {
+    .content-wrap {
+        margin: 0 auto;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .brand-container h1 {
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    .menu button {
+        font-size: 13px;
+    }
+
+    .menu {
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu li a {
+        font-size: 15px;
+    }
+
+    .search-bar {
+        width: 80px;
+    }
+
+    .game-poster {
+        width: 100px
+    }
+
+    .game-poster img {
+        width: 100%;
+    }
+
+    .review-title {
+        font-size: 17px;
     }
 
     .personal-information p {
-        width: 300px;
-        text-align: center;
+        font-size: 13px;
     }
-
+    .game-poster {
+        width: 80px;
+    }
 }
+

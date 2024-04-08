@@ -55,18 +55,129 @@
     width: 40%;
 }
 
-.lp-section img {
+.latest-games-img {
     width: 525px;
     height: 234px;
 }
 
 .gaming-database-img {
-    width: 587px !important;
-    height: 326px !important;
+    width: 587px;
+    height: auto;
     float: left;
 }
 
 .user-review-img {
-    width: 510px !important;
-    height: 206px !important;
+    width: 510px;
+    height: auto;
 }
+
+@media (max-width: 1100px) {
+
+    .lp-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+
+    .lp-text {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .latest-games-img {
+        width: 500px;
+        height: auto;
+    }
+
+    .gaming-database-img {
+        width: 500px;
+    }
+
+    .user-review-img {
+        width: 500px;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 600px) {
+    .lp-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .lp-header h1 {
+        font-size: 52px;
+    }
+    .lp-main h3 {
+        font-size: 22px;
+    }
+
+    .lp-main p {
+        font-size: 14px;
+    }
+
+    .lp-text {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .latest-games-img {
+        width: 350px;
+        height: auto;
+    }
+
+    .gaming-database-img {
+        width: 350px;
+    }
+
+    .user-review-img {
+        width: 350px;
+    }
+}
+
+@media (max-width: 330px) {
+    .content-wrap {
+        margin: 0 auto;
+        max-width: 290px;
+    }
+
+    .lp-header h1 {
+        font-size: 50px;
+    }
+
+    .lp-section {
+        max-width: 300px;
+    }
+
+    .lp-section h3 {
+        font-size: 17px;
+    }
+
+    .lp-text {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .latest-games-img {
+        width: 300px;
+        height: auto;
+    }
+
+    .gaming-database-img {
+        width: 300px;
+    }
+
+    .user-review-img {
+        width: 300px;
+    }
+}
+
+

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-{% load custom_filters %}
+    {% load custom_filters %}
 
     <div class="form-container">
         <h2>Login</h2>
@@ -14,13 +14,12 @@
                 {{ form.non_field_errors }}
             {% endif %}
             <div class="checkbox-container remember-me">
-                {{ form.remember_me }}       
+                {{ form.remember_me }}
                 {{ form.remember_me.label }}
             </div>
-            <button class="button" type="submit">Login</button>    
+            <button class="button" type="submit">Login</button>
         </form>
-        <p><a href="#">New user? Sign up here.</a></p>
-        <p><a href="#">Forgot password? Click here.</a></p>
+        <p><a href="{% url 'registration' %}">New user? Sign up here.</a></p>
     </div>
 
 {% endblock content %}

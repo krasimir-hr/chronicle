@@ -12,7 +12,6 @@
 .form-container form {
     display: flex;
     flex-direction: column;
-    align-items: left;
 }
 
 .form-container input, .form-container button, .form-container textarea, select[id="id_platform_id"], textarea[id="id_text"] {
@@ -115,4 +114,44 @@ select[id="id_platform_id"] {
 
 .confirm-delete-button:hover {
     background-color: #8b3e4a !important;
+}
+
+@media (max-width: 450px) {
+    main {
+        width: 100%;
+    }
+
+    .form-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .form-container form {
+        display: flex;
+        align-items: center;
+    }
+
+    .form-container input, .form-container button, .form-container textarea, select[id="id_platform_id"], textarea[id="id_text"] {
+        width: 250px;
+
+    }
+
+    @media (max-width: 310px) {
+        main {
+            width: 300px;
+        }
+
+        .form-container {
+            width: 250px;
+            margin: 0 auto;
+        }
+
+        .form-container input, .form-container button, .form-container textarea, select[id="id_platform_id"], textarea[id="id_text"] {
+            width: 250px;
+        }
+
+        .terms-container {
+            font-size: 13px;
+        }
+    }
 }
