@@ -143,3 +143,5 @@ LOGOUT_REDIRECT_URL = reverse_lazy('login')
 LOGIN_URL = 'login'
 
 CSRF_TRUSTED_ORIGINS = ['https://www.chronicled.krasye.com', 'https://chronicled.krasye.com']
+
+ENABLE_ORYX_BUILD = True
