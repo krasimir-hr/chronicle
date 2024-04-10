@@ -1,0 +1,166 @@
+.profile-container {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-img-name, .profile-buttons {
+    display: flex;
+}
+
+.profile-buttons {
+    padding-bottom: 10px;
+}
+
+.profile-picture img{
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.profile-picture {
+    text-align: center;
+}
+
+.profile-name, .profile-buttons a {
+    align-self: flex-end;
+}
+
+.profile-name {
+    font-size: 30px;
+    margin-left: 10px;
+    color: #FFFFFF;
+}
+
+.profile-edit, .profile-delete {
+    background-color: #4B8F8C;
+    margin-right: 5px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 0 5px;
+    font-size: 15px;
+}
+
+.profile-edit:hover, .profile-delete:hover {
+    cursor: pointer;
+    background-color: #3e7773;
+}
+
+.log-counter {
+    text-align: center;
+}
+
+.total-logs-number {
+    font-size: 50px;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.total-logs-caption {
+    margin-top: -25px;
+}
+
+.profile-logs-container {
+    display: flex;
+    border-bottom: #2C3440 solid 1px;
+    margin-bottom: 10px;
+}
+
+.profile-log-img {
+    height: 150px;
+    border-radius: 5px;
+    border: 1px solid rgba(236, 236, 236, 0.1);
+    margin-right: 10px;
+}
+
+.profile-log-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+}
+
+.profile-log-content {
+    flex-grow: 1; /* Grow to fill remaining space */
+}
+
+.profile-log-game-name {
+    font-size: 20px;
+}
+
+.profile-log-date {
+    color: #FFFFFF;
+}
+
+.profile-log-options {
+    display:  flex;
+    justify-content: space-between;
+}
+
+.profile-log-likes-comments {
+    display: flex;
+    align-self: center;
+}
+
+.profile-log-likes-comments a {
+    color: #778899;
+}
+
+.profile-log-likes-comments a:hover {
+    color: #a7b6c5;
+}
+
+.profile-log-likes a, .profile-log-comments a{
+    display: flex;
+    align-items: center;
+}
+
+.profile-log-likes a {
+    margin-right: 15px;
+}
+
+.profile-log-likes i, .profile-log-comments i {
+    margin-right: 3px;
+}
+
+@media (max-width: 500px) {
+    .profile-name {
+        font-size: 22px;
+    }
+
+    .profile-buttons {
+        flex-direction: column;
+    }
+
+    .profile-edit, .profile-delete {
+        font-size: 14px;
+        width: 80px;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .profile-edit {
+        margin-bottom: 2px;
+    }
+
+    .profile-log-details {
+        font-size: 13px;
+    }
+
+    .profile-log-img {
+        height: 100px;
+    }
+
+    .profile-log-date {
+        display: inline-block;
+        font-size: 11px;
+    }
+}

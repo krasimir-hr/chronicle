@@ -1,0 +1,503 @@
+html {
+    font-size: 17px;
+}
+
+body {
+    background: #20262C;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cairo";
+    color: #8694A2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:hover {
+    color: #BADEFC;
+}
+
+.brand-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+h1 {
+    color: #FFFFFF;
+    font-family: "Volkhov";
+    font-size: 150%;
+    margin: 0;
+}
+
+h2 {
+    font-size: 17px;
+    font-weight: 400;
+    border-bottom: 1px solid #39454e;
+    margin-top: 0;
+}
+
+h3, .rating {
+    color: #7B8996;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0
+}
+
+
+.rating {
+    margin-left: 2px !important;
+}
+
+.logo {
+    height: 50%;
+
+}
+
+.key-word {
+    color: #FFFFFF
+}
+
+nav {
+    background-color: #14181C;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    width: 100%;
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1050px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.menu {
+    display: flex;
+    margin-left: auto;
+    list-style-type: none;
+    align-items: center;
+    font-family: "Kanit", serif;
+    font-size: 20px;
+    padding: 0;
+}
+
+.menu a:hover, .menu button:hover {
+    color: #BADEFC;
+}
+
+.menu li {
+    margin-left: 15px;
+}
+
+.menu li:first-child {
+    margin: 0;
+}
+
+.user-arrow {
+    margin-left: 5px;
+}
+
+.current-user a {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.current-user img {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.menu a, .menu button {
+    color: #FFFFFF;
+}
+
+.menu button {
+    background-color: #14181C;
+    border: none;
+    cursor: pointer;
+}
+
+
+.welcome-message {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.welcome-message span {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.content-wrap {
+    padding-top: 50px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1050px;
+}
+
+.game-posters {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100%;
+}
+
+.game-poster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+}
+
+.game-img {
+    width: 150px;
+    height: auto;
+    min-height: 1px;
+    min-width: auto;
+    margin-bottom: 0px;
+    outline: 2px solid transparent;
+    outline-offset: -1px;
+    border-radius: 4px;
+    box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.5)
+}
+
+.game-poster:hover .game-img {
+    transition: outline 0.3s ease;
+    outline-color: #FFFFFF;
+}
+
+.game-poster:hover h3, .game-poster:hover .rating {
+    color: #FFFFFF;
+}
+
+.game-poster span {
+    margin: 0;
+    max-width: 150px;
+}
+
+.game-name-rating {
+    width: 100%;
+    max-height: 24.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.game-name-rating h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.games-section {
+    margin-bottom: 40px;
+}
+
+
+.reviews-container {
+    column-count: 2;
+    column-gap: 20px;
+}
+
+.review {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: #2C3440 solid 1px;
+}
+
+.review-img-details {
+    display: flex;
+}
+
+.review-poster {
+    height: 150px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(236, 236, 236, 0.1);
+}
+
+.review-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    max-width: 380px;
+}
+
+.review-user {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+.review-user p {
+    margin: 0;
+}
+
+.review-user img {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-title-and-year {
+    display: flex;
+    justify-content: center;
+    align-items: middle;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+.review-title, .review-year {
+    margin: 0;
+}
+
+.review-title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-right: 5px;
+    padding-top: 0;
+    color: #FFFFFF;
+}
+
+.review-title {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.review-year {
+    padding-top: 3px;
+    font-size: 28px;
+    font-weight: 100;
+    color: #C0C0C0;
+}
+
+.review-platform, .review-rating {
+    line-height: 1.2;
+}
+
+.review-rating {
+    color: #00C030;
+}
+
+.review-text {
+    font-size: 15px;
+}
+
+.review-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.review-option p {
+    color: #CCCCCC
+}
+
+
+.review-like-share, .review-likes, .review-comments a {
+    display: flex;
+    align-items: center;
+}
+
+.liked {
+    color: #D81E5B;
+}
+
+.review-likes {
+    margin-right: 10px;
+}
+
+footer {
+    height: 100px;
+    background-color: #16181a;
+    position: relative;
+}
+
+.personal-information {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hamburger-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.search-bar {
+    background-color: #30394C;
+    border: 1px #2C3440;
+    color: #90a0b1;
+    height: 22px;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+
+.button {
+    background-color: #606C38;
+    color: #fefae0;
+    width: 30%;
+    height: 25px;
+    font-size: 17px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 5px auto 0;
+    cursor: pointer;
+    border: none;
+}
+
+.button:hover {
+    background-color: #748342;
+}
+
+.logout-button {
+    border: none;
+    background-color: #20262C;
+}
+
+.tc {
+    margin-bottom: 50px;
+}
+
+@media (max-width: 900px) {
+    .game-posters {
+        flex-wrap: wrap;
+    }
+
+    .game-poster {
+        width: 250px
+    }
+
+    .game-poster img {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .game-poster {
+        width: 200px
+    }
+
+    .reviews-container {
+        column-count: 1;
+    }
+
+
+
+}
+
+@media (max-width: 600px) {
+    .current-user span {
+        display: none;
+    }
+
+    .navbar-search {
+        width: 80px;
+    }
+
+    .menu button {
+        font-size: 15px;
+    }
+
+    .game-poster {
+        width: 150px;
+    }
+}
+
+@media (max-width: 450px) {
+    .game-poster {
+        width: 100px;
+    }
+}
+
+@media (max-width: 370px) {
+    .content-wrap {
+        margin: 0 auto;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .brand-container h1 {
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    .menu button {
+        font-size: 13px;
+    }
+
+    .menu {
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu li a {
+        font-size: 15px;
+    }
+
+    .search-bar {
+        width: 80px;
+    }
+
+    .game-poster {
+        width: 100px
+    }
+
+    .game-poster img {
+        width: 100%;
+    }
+
+    .review-title {
+        font-size: 17px;
+    }
+
+    .personal-information p {
+        font-size: 13px;
+    }
+    .game-poster {
+        width: 80px;
+    }
+}
+

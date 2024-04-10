@@ -1,0 +1,183 @@
+.lp-header {
+    text-align: center;
+}
+
+.lp-header h1 {
+    font-size: 60px;
+}
+
+.lp-header p {
+    font-size: 20px;
+}
+
+.lp-reg-log {
+    margin: 20px 0;
+}
+
+.lp-register-btn {
+    background-color: #606C38;
+    color: #FFFFFF;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 5px auto 0;
+    cursor: pointer;
+}
+
+.lp-register-btn:hover {
+    background-color: #748342;
+}
+
+.lp-hero {
+    border: none;
+    text-align: center;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.lp-main h3 {
+    font-size: 25px;
+    color: #d7d7d7;
+}
+
+.lp-main p {
+    font-size: 16px;
+}
+
+.lp-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.lp-text {
+    width: 40%;
+}
+
+.latest-games-img {
+    width: 525px;
+    height: 234px;
+}
+
+.gaming-database-img {
+    width: 587px;
+    height: auto;
+    float: left;
+}
+
+.user-review-img {
+    width: 510px;
+    height: auto;
+}
+
+@media (max-width: 1100px) {
+
+    .lp-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+
+    .lp-text {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .latest-games-img {
+        width: 500px;
+        height: auto;
+    }
+
+    .gaming-database-img {
+        width: 500px;
+    }
+
+    .user-review-img {
+        width: 500px;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 600px) {
+    .lp-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .lp-header h1 {
+        font-size: 52px;
+    }
+    .lp-main h3 {
+        font-size: 22px;
+    }
+
+    .lp-main p {
+        font-size: 14px;
+    }
+
+    .lp-text {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .latest-games-img {
+        width: 350px;
+        height: auto;
+    }
+
+    .gaming-database-img {
+        width: 350px;
+    }
+
+    .user-review-img {
+        width: 350px;
+    }
+}
+
+@media (max-width: 330px) {
+    .content-wrap {
+        margin: 0 auto;
+        max-width: 290px;
+    }
+
+    .lp-header h1 {
+        font-size: 50px;
+    }
+
+    .lp-section {
+        max-width: 300px;
+    }
+
+    .lp-section h3 {
+        font-size: 17px;
+    }
+
+    .lp-text {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .latest-games-img {
+        width: 300px;
+        height: auto;
+    }
+
+    .gaming-database-img {
+        width: 300px;
+    }
+
+    .user-review-img {
+        width: 300px;
+    }
+}
+
+

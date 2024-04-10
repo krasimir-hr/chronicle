@@ -1,0 +1,56 @@
+.search-container {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1050px;
+    padding: 20px;
+}
+
+.search-term {
+    color: #FFFFFF;
+}
+
+.result-container {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #313841
+}
+
+.search-poster {
+    height: 130px;
+    width: 100px;
+    margin: 8px 20px 10px 0;
+}
+
+
+.result-name-year {
+    display: flex;
+}
+
+.search-year {
+    margin-left: 10px;
+}
+
+.search-summary {
+    min-width: 930px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: clip;
+    height: 100px;
+}
+
+.log-review-container {
+    text-align: end;
+}
+
+.log-button {
+    margin-top: 9px;
+    margin-left: 15px;
+    padding: 0;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    .search-container {
+        width: 600px;
+    }
+}

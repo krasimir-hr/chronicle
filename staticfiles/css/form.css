@@ -1,0 +1,157 @@
+
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container input, .form-container button, .form-container textarea, select[id="id_platform_id"], textarea[id="id_text"] {
+    color: #8694A2;
+    background-color: #30394C;
+    font-size: 17px;
+    width: 390px;
+    height: 30px;
+    border: 1px solid #0f1116;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 0 5px;
+}
+
+.form-container button {
+    background-color: #606C38;
+    color: #fefae0;
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+    margin: 5px auto 10px;
+    cursor: pointer;
+}
+
+
+.form-container input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+    margin: 0 5px 0 2px;
+}
+
+
+.form-container p {
+    text-align: center;
+    margin: -9px;
+
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.remember-me {
+    justify-content: center;
+    align-items: center;
+}
+
+div[id="id_rating"] {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div[id="id_rating"] label {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+input[name="rating"] {
+    height: auto;
+    width: auto;
+    margin: 0
+}
+
+
+.create-log-img {
+    height: 270px;
+    border-radius: 5px;
+    border: 1px solid rgba(236, 236, 236, 0.1);
+}
+
+.create-log-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.large-frame {
+    max-width: 600px;
+}
+
+.create-log-right-side p {
+    margin-bottom: 5px;
+}
+
+.create-log-right-side textarea {
+    height: 100px;
+    width: 300px;
+}
+
+select[id="id_platform_id"] {
+    width: 312px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.confirm-delete-button {
+    background-color: #723d46 !important;
+}
+
+.confirm-delete-button:hover {
+    background-color: #8b3e4a !important;
+}
+
+@media (max-width: 450px) {
+    main {
+        width: 100%;
+    }
+
+    .form-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .form-container form {
+        display: flex;
+        align-items: center;
+    }
+
+    .form-container input, .form-container button, .form-container textarea, select[id="id_platform_id"], textarea[id="id_text"] {
+        width: 250px;
+
+    }
+
+    @media (max-width: 310px) {
+        main {
+            width: 300px;
+        }
+
+        .form-container {
+            width: 250px;
+            margin: 0 auto;
+        }
+
+        .form-container input, .form-container button, .form-container textarea, select[id="id_platform_id"], textarea[id="id_text"] {
+            width: 250px;
+        }
+
+        .terms-container {
+            font-size: 13px;
+        }
+    }
+}
