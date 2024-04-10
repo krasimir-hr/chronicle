@@ -22,12 +22,20 @@ class RegistrationView(CreateView):
     success_url = reverse_lazy('login')
 
 
-class LoginView(LoginView):
+class CustomLoginView(LoginView):
     form_class = LoginForm
     template_name = "profiles/login.html"
 
+    def form_valid(self, form):
+        remember_me = form.cleaned_data['remember_me']
+        if remember_me:
+            self.request.session.set_expiry(604800)
+        else:
+            self.request.session.set_expiry(0)
+        return super().form_valid(form)
 
-class LogoutView(LogoutView):
+
+class CustomLogoutView(LogoutView):
     pass
 
 

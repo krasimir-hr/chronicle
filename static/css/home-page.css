@@ -430,16 +430,16 @@ footer {
         display: none;
     }
 
-    .navbar-search {
-        width: 80px;
-    }
-
     .menu button {
         font-size: 15px;
     }
 
     .game-poster {
         width: 150px;
+    }
+
+    .search-bar {
+        width: 80px;
     }
 }
 
@@ -478,7 +478,7 @@ footer {
     }
 
     .search-bar {
-        width: 80px;
+        width: 50px;
     }
 
     .game-poster {

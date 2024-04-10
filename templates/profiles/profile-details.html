@@ -43,15 +43,17 @@
         <h2>User logs</h2>
         {% for log in user_logs %}
             <div class="profile-logs-container">
-                <img
-                        class="profile-log-img"
-                        src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ log.game.cover_id }}.jpg"
-                        alt=""
-                />
+                <a href="{% url "game-detail" log.game.slug %}">
+                    <img
+                            class="profile-log-img"
+                            src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ log.game.cover_id }}.jpg"
+                            alt="Game cover"
+                    />
+                </a>
                 <div class="profile-log-details">
 
                     <div>
-                        <a href="#" class="profile-log-game-name">{{ log.game.name }}</a>
+                        <a href="{% url "game-detail" log.game.slug %}" class="profile-log-game-name">{{ log.game.name }}</a>
                         logged on
                         <span class="profile-log-date">{{ log.date_posted }}</span>
                         <p class="review-rating">{{ log.rating|rating_stars }}</p>
@@ -78,7 +80,7 @@
                                 </a>
                             </div>
                             <div class="profile-log-comments">
-                                <a href="#">
+                                <a href="{% url 'log-details' log.game.slug log.id %}">
                                     <i class="fa-solid fa-comment fa-sm"></i>
                                     <p>{{ log.comment_set.all|length }} Comments</p>
                                 </a>
