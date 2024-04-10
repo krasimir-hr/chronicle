@@ -449,6 +449,16 @@ footer {
     }
 }
 
+@media (max-width: 380px) {
+    .review-details {
+        max-width: 220px;
+    }
+
+    .review-title {
+        font-size: 24px;
+    }
+}
+
 @media (max-width: 370px) {
     .content-wrap {
         margin: 0 auto;
