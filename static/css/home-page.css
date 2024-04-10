@@ -447,9 +447,7 @@ footer {
     .game-poster {
         width: 100px;
     }
-}
 
-@media (max-width: 380px) {
     .review-details {
         max-width: 220px;
     }
@@ -458,6 +456,7 @@ footer {
         font-size: 24px;
     }
 }
+
 
 @media (max-width: 370px) {
     .content-wrap {
