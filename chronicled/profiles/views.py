@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
@@ -64,9 +65,16 @@ class EditProfileView(LoginRequiredMixin, UpdateView):
     model = Profile
     form_class = ProfileEditForm
     template_name = 'profiles/profile-edit.html'
+    slug_field = 'slug'
 
     def get_object(self, queryset=None):
-        return self.request.user.profile
+        slug = self.kwargs.get('slug')
+        user = get_object_or_404(AppUser, slug=slug)
+        profile = get_object_or_404(Profile, user=user)
+        if self.request.user == user or self.request.user.is_staff:
+            return profile
+        else:
+            raise PermissionDenied("You don't have permission to access this object.")
     
     def form_valid(self, form):
         profile = form.save(commit=False)
@@ -82,4 +90,12 @@ class DeleteProfileView(LoginRequiredMixin, DeleteView):
     model = UserModel
     template_name = 'profiles/profile-delete.html'
     success_url = reverse_lazy('login')
-    context_object_name = 'log'
+
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        user = get_object_or_404(AppUser, slug=slug)
+        profile = get_object_or_404(Profile, user=user)
+        if self.request.user == user or self.request.user.is_superuser:
+            return profile
+        else:
+            raise PermissionDenied("You don't have permission to access this object.")

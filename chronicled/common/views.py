@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
 from django.views import View
 from django.views.generic import TemplateView, ListView, CreateView, DetailView
@@ -135,19 +136,6 @@ class BaseLogView(LoginRequiredMixin):
         kwargs['platform_choices'] = self.platforms
         return kwargs
 
-    def form_valid(self, form):
-        game_db, created = Game.objects.get_or_create(slug=self.slug)
-        if created:
-            game_db.slug = self.slug
-            game_db.name = self.name
-            game_db.cover_id = self.cover_id
-            game_db.save()
-
-        form.instance.game = game_db
-        form.instance.user = self.request.user
-
-        return super().form_valid(form)
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['name'] = self.game_data[0]['name']
@@ -164,6 +152,19 @@ class CreateLogView(BaseLogView, CreateView):
     template_name = 'common/log-create.html'
     context_object_name = 'log'
 
+    def form_valid(self, form):
+        game_db, created = Game.objects.get_or_create(slug=self.slug)
+        if created:
+            game_db.slug = self.slug
+            game_db.name = self.name
+            game_db.cover_id = self.cover_id
+            game_db.save()
+
+        form.instance.game = game_db
+        form.instance.user = self.request.user
+
+        return super().form_valid(form)
+
 
 class EditLogView(BaseLogView, UpdateView):
     model = Log
@@ -171,12 +172,39 @@ class EditLogView(BaseLogView, UpdateView):
     template_name = 'common/log-edit.html'
     context_object_name = 'log'
 
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if self.request.user == obj.user or self.request.user.is_staff:
+            return obj
+        else:
+            raise PermissionDenied("You don't have permission to access this object.")
+
+    def form_valid(self, form):
+        game_db, created = Game.objects.get_or_create(slug=self.slug)
+        if created:
+            game_db.slug = self.slug
+            game_db.name = self.name
+            game_db.cover_id = self.cover_id
+            game_db.save()
+
+        form.instance.game = game_db
+
+        return super().form_valid(form)
+
 
 class DeleteLogView(DeleteView):
     model = Log
     template_name = 'common/log-delete.html'
     success_url = reverse_lazy('home-page')
     context_object_name = 'log'
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if self.request.user == obj.user or self.request.user.is_superuser:
+            return obj
+        else:
+            raise PermissionDenied("You don't have permission to access this object.")
+
 
 
 class LogDetailsView(LoginRequiredMixin, FormMixin, DetailView):

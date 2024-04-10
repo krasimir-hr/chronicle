@@ -4,14 +4,21 @@ from django.contrib.auth.models import User
 
 from .models import Profile, AppUser
 
+class ProfileInline(admin.StackedInline):
+    model = Profile
+    can_delete = False
+    verbose_name_plural = 'Profile'
 
-@admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
-    pass
 
+class AppUserAdmin(UserAdmin):
+    list_display = ('username', 'email', 'id', 'is_staff', 'is_active')
 
-class CustomAppUserAdmin(UserAdmin):
-    list_display = ('id', 'username')
+    fieldsets = (
+        (None, {'fields': ('username', 'email', 'password')}),
+        ('Permissions', {'fields': ('is_staff', 'is_active')}),
+    )
+
+    inlines = (ProfileInline,)
 
     def has_change_permission(self, request, obj=None):
         if obj is not None and obj.is_staff and not request.user.is_superuser:
@@ -20,12 +27,7 @@ class CustomAppUserAdmin(UserAdmin):
         return super().has_change_permission(request, obj)
 
 
-admin.site.unregister(User)
-admin.site.register(User, CustomAppUserAdmin)
+admin.site.register(AppUser, AppUserAdmin)
 
-
-@admin.register(AppUser)
-class AppUserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username')
 
 

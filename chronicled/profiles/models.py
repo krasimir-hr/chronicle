@@ -38,12 +38,15 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     objects = AppUserManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['email']
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.username)
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.username
 
 
 UserModel = get_user_model()
@@ -88,6 +91,5 @@ class Profile(models.Model):
         upload_to=profile_picture_path,
         default='images/anon-user.webp',
     )
-
 
 

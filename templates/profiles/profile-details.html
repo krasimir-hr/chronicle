@@ -24,16 +24,19 @@
                     <div class="profile-name">{{ user.username }}</div>
                 {% endif %}
             </div>
-            {% if user == request.user %}
-                <div class="profile-buttons">
+
+            <div class="profile-buttons">
+                {% if user == request.user or request.user.is_staff %}
                     <a href="{% url 'profile-edit' user.slug %}">
                         <div class="profile-edit">Edit Profile</div>
                     </a>
+                {% endif %}
+                {% if user == request.user or request.user.is_superuser %}
                     <a href="{% url 'profile-delete' user.slug %}">
                         <div class="profile-delete">Delete Profile</div>
                     </a>
-                </div>
-            {% endif %}
+                {% endif %}
+            </div>
 
         </div>
         <div class="log-counter">
@@ -53,7 +56,8 @@
                 <div class="profile-log-details">
 
                     <div>
-                        <a href="{% url "game-detail" log.game.slug %}" class="profile-log-game-name">{{ log.game.name }}</a>
+                        <a href="{% url "game-detail" log.game.slug %}"
+                           class="profile-log-game-name">{{ log.game.name }}</a>
                         logged on
                         <span class="profile-log-date">{{ log.date_posted }}</span>
                         <p class="review-rating">{{ log.rating|rating_stars }}</p>

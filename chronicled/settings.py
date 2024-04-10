@@ -4,6 +4,11 @@ from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# DEBUG = True
+#
+# SECRET_KEY = 32131321312312
+#
+# ALLOWED_HOSTS = ['*']
 
 DEBUG = os.environ.get("DEBUG")
 
